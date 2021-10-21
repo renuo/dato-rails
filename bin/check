@@ -1,0 +1,5 @@
+#!/bin/sh
+
+bundle exec standardrb --fix
+
+bundle exec rspec

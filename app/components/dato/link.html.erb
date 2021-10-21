@@ -1,0 +1,5 @@
+<a href="<%=@node.url %>" class="dato-cms-<%=@node.type %>">
+  <% @node.children&.each do |node| %>
+    <%= render_node(node) %>
+  <% end %>
+</a>

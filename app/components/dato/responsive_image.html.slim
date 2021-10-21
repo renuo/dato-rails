@@ -1,0 +1,6 @@
+div.dato-responsive-image[style="position: relative; background-image: url(#{@node.base64}); background-size: cover;" class=@custom_css_classes]
+  div[style="padding-top: #{100.0 / @node.aspectRatio}%;"]
+  picture[style="position: absolute; left: 0; top: 0; width: 100%"]
+    source[srcset=@node.webpSrcSet type="image/webp"]
+    source[srcset=@node.srcSet]
+    img src=@node.src alt=@node.alt title=@node.title loading="lazy" width="100%"

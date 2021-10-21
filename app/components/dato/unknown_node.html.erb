@@ -1,0 +1,15 @@
+<div style="border: 3px dotted limegreen; display: inline-block; padding: 5px;">
+  <b>
+    This is an unknown node of type <code><%=@type %></code>.<br>
+    In order to render it, you need to define a ViewComponent named <code><%=class_by_type(@node.type) %></code>.<br>
+    You can define this class in your <code>app/components/dato</code> folder. For example:<br><br>
+    <code>
+      class <%=class_by_type(@node.type) %> < Dato::DastNode<br>
+        ...<br>
+      end<br>
+    </code><br>
+    If you don't want to render this node, you can override the component when rendering the root <code>Dato::StructuredText</code> node.<br>
+    <code>Dato::StructuredText.new(content, overrides: { link: Dato::NotRendered })</code>
+  </b>
+  <%= debug_node %>
+</div>

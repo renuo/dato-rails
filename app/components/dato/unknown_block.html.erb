@@ -1,0 +1,17 @@
+<div style="border: 3px dotted limegreen; display: inline-block; padding: 5px;">
+  <b>
+    This is an unknown block. Here is the content:<br>
+    <pre><%= JSON.pretty_generate(@node)  %></pre>
+    In order to render it, you need to define a ViewComponent named <code><%=class_by_type(@node.__typename) %></code>.<br>
+    You can define this class in your <code>app/components/dato</code> folder. For example:<br><br>
+    <code>
+      class <%=class_by_type(@node.__typename) %> < Dato::DastNode<br>
+      ...<br>
+      end<br>
+    </code><br>
+    If you don't want to render this block you can:
+    * not return it in your GraphQL query
+    * the component when rendering the root <code>Dato::StructuredText</code> node.<br>
+    <code>Dato::StructuredText.new(content, overrides: { '<%=@node.__typename %>': Dato::NotRendered })</code>
+  </b>
+</div>
