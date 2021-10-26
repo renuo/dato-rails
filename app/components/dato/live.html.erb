@@ -1,0 +1,20 @@
+<% if @live %>
+  <script type="text/javascript">
+    const eventSourceUrl = '<%=@data.url %>';
+    const componentKlass = '<%=@component_klass%>';
+    const frameId = '<%=@frame_id%>';
+    const eventSource = new EventSource(eventSourceUrl);
+    eventSource.addEventListener("update", (event) => {
+      const params = new URLSearchParams({
+        component: componentKlass,
+        data: event.data,
+        frame_id: frameId
+      });
+      document.getElementById(frameId).src = `/dato/live?${params.toString()}`;
+    });
+  </script>
+
+  <%= turbo_frame_tag @frame_id %>
+<% else %>
+  <%= render(@component_klass.new(@data)) %>
+<% end %>

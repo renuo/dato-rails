@@ -1,0 +1,3 @@
+<%= turbo_frame_tag params[:frame_id] do %>
+  <%= render params[:component].constantize.new(@data) %>
+<% end %>

@@ -102,6 +102,36 @@ Dato::Config.overrides = {
 }.with_indifferent_access
 ```
 
+# Preview and live
+
+The `Dato::Client` supports both [preview](https://www.datocms.com/docs/pro-tips/how-to-manage-a-live-and-a-preview-site) and [live updates](https://www.datocms.com/docs/real-time-updates-api) features from Dato CMS.
+
+```ruby
+ Dato::Client.new(preview: true) # to fetch draft versions
+
+client = Dato::Client.new(live: true) # => to fetch a live straming URL 
+client.live!(your_query)
+# => { url: 'https://your_event_source_url' }
+```
+
+A `ViewComponent` is provided to use both these features very easily!
+
+Given that you have a `ViewComponent` that takes in input only the result of a dato query,
+you probably have the following:
+
+```ruby
+result = Dato::Client.new.execute!(my_query)
+render(MyComponent.new(result))
+```
+
+you can now wrap everything in a `Dato::Live` component like this:
+
+```ruby
+render(Dato::Live.new(MyComponent, my_query, preview: true, live: true))
+```
+
+and your component will come to life with live updates 🎉 (requires turbo).
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. 
