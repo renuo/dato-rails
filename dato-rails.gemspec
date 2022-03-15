@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "view_component", ">= 2.0"
   spec.add_dependency "rails", ">= 4"
-  spec.add_dependency "turbo-rails", ">= 7"
+  spec.add_dependency "turbo-rails", ">= 1"
   spec.add_dependency "gqli", ">= 1"
   spec.add_dependency "zeitwerk", ">= 1"
 end

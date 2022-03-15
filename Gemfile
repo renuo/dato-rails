@@ -8,7 +8,7 @@ group :development do
   gem "sqlite3"
 end
 
-gem "gqli", path: "../gqli.rb"
+gem "gqli"
 
 # Start debugger with binding.b -- Read more: https://github.com/ruby/debug
 # gem "debug", ">= 1.0.0", group: %i[ development test ]
