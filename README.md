@@ -68,7 +68,7 @@ GQLi::DSL.query {
 ## View rendering
 
 The library is also a Rails Engine and provides a whole set of ViewComponents to render your content.
-The lirbary aims to provide the most basic components and make it easy to create new one.
+The library aims to provide the most basic components and make it easy to create new one.
 
 Once you fetched the response of a query, you can use the Dato ViewComponents to render the content.
 
@@ -107,7 +107,7 @@ Dato::Config.overrides = {
 The `Dato::Client` supports both [preview](https://www.datocms.com/docs/pro-tips/how-to-manage-a-live-and-a-preview-site) and [live updates](https://www.datocms.com/docs/real-time-updates-api) features from Dato CMS.
 
 ```ruby
- Dato::Client.new(preview: true) # to fetch draft versions
+Dato::Client.new(preview: true) # to fetch draft versions
 
 client = Dato::Client.new(live: true) # => to fetch a live straming URL 
 client.live!(your_query)

@@ -1,0 +1,10 @@
+<div class="dato-responsive-image <%= @custom_css_classes %>"
+     style="position: relative; background-image: url(<%= @node.base64 %>); background-size: cover;">
+  <div style="padding-top: <%= 100.0 / @node.aspectRatio %>%;">
+    <picture style="position: absolute; left: 0; top: 0; width: 100%">
+      <source srcset="<%= @node.webpSrcSet %>" type="image/webp">
+      <source srcset="<%= @node.srcSet %>">
+      <img src="<%= @node.src %>" alt="<%= @node.alt %>" title="<%= @node.title %>" loading="lazy" width="100%">
+    </picture>
+  </div>
+</div>
