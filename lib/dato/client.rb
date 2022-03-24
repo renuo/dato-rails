@@ -1,6 +1,6 @@
 module Dato
   class Client < GQLi::Client
-    def initialize(api_token = ENV["DATO_API_TOKEN"], validate_query: true, preview: false, live: false)
+    def initialize(api_token = ENV["DATO_API_TOKEN"], validate_query: false, preview: false, live: false)
       super(
         "https://graphql#{"-listen" if live}.datocms.com/#{"preview" if preview}",
         headers: {
