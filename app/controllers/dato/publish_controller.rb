@@ -23,14 +23,16 @@ module Dato
     private
 
     def notify_success
-      if Dato::Config.build_triggger_id.present?
+      if Dato::Config.build_trigger_id.present?
         Thread.new do
           sleep 5 # wait for the build to finish
-          uri = URI("https://webhooks.datocms.com/#{Dato::Config.build_triggger_id}/deploy-results")
+          uri = URI("https://webhooks.datocms.com/#{Dato::Config.build_trigger_id}/deploy-results")
           req = Net::HTTP::Post.new(uri, "Content-Type" => "application/json")
           req.body = {status: "success"}.to_json
           Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) { |http| http.request(req) }
         end
+      else
+        Rails.logger.info "Dato::Config.build_trigger_id is not set, skipping notification."
       end
     end
   end

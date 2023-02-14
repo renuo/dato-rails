@@ -1,3 +1,7 @@
+0.5.0
+
+* Allow to configure the api token via `Dato::Config.api_token`
+
 0.4.0
 
 * Introduced a caching mechanism so that the rendered components can be cached.

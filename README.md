@@ -147,7 +147,7 @@ Dato::Config.configure do |config|
   config.cache = false # default: false
   config.cache_namespace = 'dato-rails' # default: 'dato-rails'
   config.publish_key = ENV['DATO_PUBLISH_KEY'] # default: ENV['DATO_PUBLISH_KEY']
-  config.build_triggger_id = ENV['DATO_BUILD_TRIGGER_ID'] # default: ENV['DATO_BUILD_TRIGGER_ID']
+  config.build_trigger_id = ENV['DATO_BUILD_TRIGGER_ID'] # default: ENV['DATO_BUILD_TRIGGER_ID']
 end
 ```
 
