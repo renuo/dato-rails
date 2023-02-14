@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://graphql-listen.datocms.com/
+    body:
+      encoding: UTF-8
+      string: '{"query":"query {\n  homepage {\n    id\n    _createdAt\n    _seoMetaTags
+        {\n      attributes\n      content\n      tag\n    }\n    content {\n      value\n      blocks
+        {\n        id\n        image {\n          responsiveImage(imgixParams: {fm:
+        png}) {\n            srcSet\n            webpSrcSet\n            sizes\n            src\n            width\n            height\n            aspectRatio\n            alt\n            title\n            bgColor\n            base64\n          }\n        }\n      }\n    }\n  }\n}\n"}'
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - gqli.rb/1.2.0; http.rb/5.1.1
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - graphql-listen.datocms.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 14 Feb 2023 09:13:41 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '90'
+      Connection:
+      - close
+      Access-Control-Allow-Headers:
+      - Content-Type, Authorization
+      Access-Control-Allow-Methods:
+      - POST, GET
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '86400'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Via:
+      - 1.1 vegur
+      Cf-Cache-Status:
+      - DYNAMIC
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7994b06f3a36ce97-GVA
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://graphql-listen.datocms.com/channels/35fb5cc1-54a3-4b87-9b7e-065ca7545bcf"}'
+  recorded_at: Tue, 14 Feb 2023 09:13:41 GMT
+recorded_with: VCR 6.1.0

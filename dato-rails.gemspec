@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/renuo/dato-rails"
-  spec.metadata["changelog_uri"] = "https://github.com/renuo/dato-rails/CHANGELOG.md"
+  spec.metadata["changelog_uri"] = "https://github.com/renuo/dato-rails/blob/main/CHANGELOG.md"
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
@@ -19,6 +19,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "standard", "~> 1.0"
   spec.add_development_dependency "dotenv"
   spec.add_development_dependency "capybara"
+  spec.add_development_dependency "vcr"
+  spec.add_development_dependency "webmock"
 
   spec.add_dependency "view_component", ">= 2.0"
   spec.add_dependency "rails", ">= 4"

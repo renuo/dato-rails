@@ -7,11 +7,34 @@ module Dato
   class Live < ViewComponent::Base
     delegate :turbo_frame_tag, to: :helpers
 
+    attr_reader :component_klass, :query, :preview, :live
+
     def initialize(component_klass, query, preview: false, live: false)
-      @data = dato_fetch(query, preview: preview, live: live)
+      super()
       @component_klass = component_klass
+      @query = query
+      @preview = preview
       @live = live
-      @frame_id = SecureRandom.hex(10)
+    end
+
+    def cache?
+      Dato::Config.cache.present?
+    end
+
+    def cache_key
+      @cache_key ||= Digest::MD5.hexdigest(query.to_gql)
+    end
+
+    def cache_time
+      @cache_time ||= Dato::Config.cache.is_a?(Integer) ? Dato::Config.cache : 60.minutes
+    end
+
+    def data
+      @data ||= dato_fetch(query, preview: preview, live: live)
+    end
+
+    def frame_id
+      @frame_id ||= SecureRandom.hex(10)
     end
 
     private

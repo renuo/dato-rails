@@ -6,6 +6,6 @@ class Dato::List < Dato::DastNode
   end
 
   def generated_tag
-    @node.style == "bulleted" ? "ul" : "ol"
+    (@node.style == "bulleted") ? "ul" : "ol"
   end
 end

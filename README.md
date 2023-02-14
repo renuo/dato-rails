@@ -118,7 +118,7 @@ client.live!(your_query)
 
 A `ViewComponent` is provided to use both these features very easily!
 
-Given that you have a `ViewComponent` that takes in input only the result of a dato query,
+Given that you have a `MyComponent` that takes in input only the result of a dato query,
 you probably have the following:
 
 ```ruby
@@ -133,6 +133,68 @@ render(Dato::Live.new(MyComponent, my_query, preview: true, live: true))
 ```
 
 and your component will come to life with live updates 🎉 (requires turbo).
+
+## Configuration
+
+The following options are available:
+
+```ruby
+# config/initializers/dato.rb
+
+Dato::Config.configure do |config|
+  config.overrides = {} # default: {}
+  config.blocks = {} # default: {}
+  config.cache = false # default: false
+  config.cache_namespace = 'dato-rails' # default: 'dato-rails'
+  config.publish_key = ENV['DATO_PUBLISH_KEY'] # default: ENV['DATO_PUBLISH_KEY']
+  config.build_triggger_id = ENV['DATO_BUILD_TRIGGER_ID'] # default: ENV['DATO_BUILD_TRIGGER_ID']
+end
+```
+
+## Caching
+
+The library supports caching of the rendered components. 
+If you enable caching, the components rendered using `Dato::Live`, will be cached.
+
+To enable caching, you need to set the `cache` option in the configuration.
+
+```ruby
+# config/initializers/dato.rb
+
+Dato::Config.configure do |config|
+  config.cache = 1.day # if you set it to `true`, it will default to 60 minutes
+end
+```
+
+Now a call to
+
+```ruby
+render(Dato::Live.new(MyComponent, my_query))
+```
+
+will be cached for 1 day. 
+
+This means that for the next 24 hours, the graphQL endpoint will not be invoked and the whole component rendering will also be skipped.
+
+**We will cache the entire HTML result of the component, not only the graphQL response.**
+
+If you want to expire the cache you have two options:
+
+### manually
+
+executing `Rails.cache.clear(namespace: Dato::Config.cache_namespace)`
+
+### publish endpoint
+
+You can take advantage of the publish mechanism of Dato CMS to expire the cache.
+* Mount the `dato-rails` engine in your Rails routes file.
+* Set the `DATO_PUBLISH_KEY` environment variable
+* Create a build trigger with a custom webhook on your Dato CMS project setting.
+* Define the Trigger URL as `https://yourapp.com/dato/publish`
+* Set the `DATO_PUBLISH_KEY` as the Authorization header
+* Copy the build trigger id and set it as `DATO_BUILD_TRIGGER_ID` environment variable.
+
+
 
 ## Development
 

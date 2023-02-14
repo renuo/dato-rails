@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe "fetch all posts" do
+RSpec.describe "fetch all posts", :vcr do
   it "can fetch a list of posts" do
     client = Dato::Client.new
     response = client.execute!(posts_query)
