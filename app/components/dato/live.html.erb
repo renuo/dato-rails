@@ -16,11 +16,7 @@
 
   <%= turbo_frame_tag frame_id %>
 <% else %>
-  <% if cache? %>
-    <%= Rails.cache.fetch(cache_key, expires_in: cache_time, namespace: Dato::Config.cache_namespace) do %>
-      <% render(component_klass.new(data)) %>
-    <% end %>
-  <% else %>
-    <%= render(component_klass.new(data)) %>
+  <%= Dato::Cache.fetch(cache_key) do %>
+    <% render(component_klass.new(data)) %>
   <% end %>
 <% end %>
