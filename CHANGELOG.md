@@ -1,3 +1,7 @@
+0.6.0
+
+* Add CRUD operations for Dato Items (all, find, create, update, destroy)
+
 0.5.0
 
 * Allow to configure the api token via `Dato::Config.api_token`

@@ -26,7 +26,7 @@ The gem is made of two parts:
 
 ## GraphQL client
 
-The GraphQL client based on [GQLi](https://github.com/contentful-labs/gqli.rb) allows to perform 
+The GraphQL client based on [GQLi](https://github.com/contentful-labs/gqli.rb) allows to perform
 queries to the GraphQL endpoint.
 Look at GQLi documentation for more information about the syntax of queries.
 You can also find some examples in specs of this library.
@@ -104,7 +104,7 @@ Dato::Config.overrides = {
 }.with_indifferent_access
 ```
 
-# Preview and live
+## Preview and live
 
 The `Dato::Client` supports both [preview](https://www.datocms.com/docs/pro-tips/how-to-manage-a-live-and-a-preview-site) and [live updates](https://www.datocms.com/docs/real-time-updates-api) features from Dato CMS.
 
@@ -134,6 +134,40 @@ render(Dato::Live.new(MyComponent, my_query, preview: true, live: true))
 
 and your component will come to life with live updates 🎉 (requires turbo).
 
+## CRUD Operations
+
+The library also provides a set of helpers to perform CRUD operations on Dato CMS.
+
+### All
+
+```ruby
+Dato::Client.new.items.all(item_type_id: '456')
+```
+
+### Find
+
+```ruby
+Dato::Client.new.items.find(item_id: '123')
+```
+
+### Create
+
+```ruby
+Dato::Client.new.items.create(attributes: { title: 'Hello world' }, item_type_id: '456')
+```
+
+### Update
+
+```ruby
+Dato::Client.new.items.update(attributes: { title: 'Hello world' }, item_id: '123')
+```
+
+### Destroy
+
+```ruby
+Dato::Client.new.items.destroy(item_id: '123')
+```
+
 ## Configuration
 
 The following options are available:
@@ -153,7 +187,7 @@ end
 
 ## Caching
 
-The library supports caching of the rendered components. 
+The library supports caching of the rendered components.
 If you enable caching, the components rendered using `Dato::Live`, will be cached.
 
 To enable caching, you need to set the `cache` option in the configuration.
