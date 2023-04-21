@@ -1,3 +1,7 @@
+0.6.0
+
+* Extracted a Dato::Cache class to use the Dato::Rails cache independently.
+
 0.5.0
 
 * Allow to configure the api token via `Dato::Config.api_token`
