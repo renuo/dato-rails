@@ -1,3 +1,7 @@
+0.7.0
+
+* Add CRUD operations for Dato Items (all, find, create, update, destroy)
+
 0.6.0
 
 * Extracted a Dato::Cache class to use the Dato::Rails cache independently.
