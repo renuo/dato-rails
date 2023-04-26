@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dato-rails (0.6.0)
+    dato-rails (0.7.0)
       gqli (>= 1)
       rails (>= 4)
       turbo-rails (>= 1)
@@ -244,7 +244,7 @@ GEM
     unf_ext (0.0.8.2)
     unicode-display_width (2.4.2)
     vcr (6.1.0)
-    view_component (2.82.0)
+    view_component (3.0.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
