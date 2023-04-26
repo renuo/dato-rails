@@ -17,16 +17,8 @@ module Dato
       @live = live
     end
 
-    def cache?
-      Dato::Config.cache.present?
-    end
-
     def cache_key
       @cache_key ||= Digest::MD5.hexdigest(query.to_gql)
-    end
-
-    def cache_time
-      @cache_time ||= Dato::Config.cache.is_a?(Integer) ? Dato::Config.cache : 60.minutes
     end
 
     def data
