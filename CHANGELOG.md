@@ -1,3 +1,8 @@
+0.7.1
+
+* Fix a bug that prevented the usage of `client.execute`
+* The GraphQL client is now exposed as `client.gql`
+
 0.7.0
 
 * Add CRUD operations for Dato Items (all, find, create, update, destroy)

@@ -10,6 +10,12 @@ RSpec.describe Dato::Client, :vcr do
   it "can execute a query without errors" do
     response = client.execute!(homepage_query)
     expect(response.data.homepage.id).to be_present
+
+    response = client.execute(homepage_query)
+    expect(response.data.homepage.id).to be_present
+
+    response = client.gql.execute!(homepage_query)
+    expect(response.data.homepage.id).to be_present
   end
 
   context "when preview is true" do
