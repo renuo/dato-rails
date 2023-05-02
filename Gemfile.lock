@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dato-rails (0.7.0)
+    dato-rails (0.7.1)
       gqli (>= 1)
       rails (>= 4)
       turbo-rails (>= 1)
