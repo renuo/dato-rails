@@ -1,3 +1,7 @@
+0.7.2
+
+* Moved `dato-cms-attribution` into `dato-cms-blockquote`
+
 0.7.1
 
 * Fix a bug that prevented the usage of `client.execute`
