@@ -1,6 +1,6 @@
 0.7.2
 
-* Moved `dato-cms-attribution` into `dato-cms-blockquote`
+* Wrap `dato-cms-attribution` and `dato-cms-blockquote` into a figure tag
 
 0.7.1
 
