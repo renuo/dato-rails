@@ -1,9 +1,11 @@
-<%= content_tag generated_tag, class: "dato-cms-#{@node.type}" do %>
-  <% @node.children&.each do |node| %>
-    <%= render_node(node) %>
+<figure class="dato-cms-figure">
+  <%= content_tag generated_tag, class: "dato-cms-#{@node.type}" do %>
+    <% @node.children&.each do |node| %>
+      <%= render_node(node) %>
+    <% end %>
   <% end %>
-<% end %>
 
-<p class="dato-cms-attribution">
-  <%= @node.attribution %>
-</p>
+  <figcaption class="dato-cms-attribution">
+    <%= @node.attribution %>
+  </figcaption>
+</figure>

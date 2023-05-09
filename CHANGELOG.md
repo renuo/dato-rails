@@ -1,3 +1,7 @@
+0.7.2
+
+* Wrap `dato-cms-attribution` and `dato-cms-blockquote` into a figure tag
+
 0.7.1
 
 * Fix a bug that prevented the usage of `client.execute`
