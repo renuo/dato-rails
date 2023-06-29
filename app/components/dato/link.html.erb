@@ -1,5 +1,5 @@
-<a href="<%=@node.url %>" class="dato-cms-<%=@node.type %>">
+<%= tag.a(**link_attributes) do %>
   <% @node.children&.each do |node| %>
     <%= render_node(node) %>
   <% end %>
-</a>
+<% end %>
