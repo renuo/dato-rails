@@ -27,8 +27,8 @@ RSpec.describe Dato::Link, type: :component do
 
     it "does not render meta" do
       is_expected.to have_selector("a.dato-cms-link[href='https://renuo.ch/']")
-      is_expected.not_to have_selector("a.dato-cms-link[rel='nofollow']")
-      is_expected.not_to have_selector("a.dato-cms-link[target='_blank']")
+      is_expected.not_to have_selector("a.dato-cms-link[rel]")
+      is_expected.not_to have_selector("a.dato-cms-link[target]")
     end
   end
 end
