@@ -31,4 +31,18 @@ RSpec.describe Dato::Link, type: :component do
       is_expected.not_to have_selector("a.dato-cms-link[target]")
     end
   end
+
+  context "when meta is not present" do
+    let(:dast_node) { {
+      "type": "link",
+      "url": "https://renuo.ch/",
+      "children": [{ "type": "span", "value": "The best company!", }]
+    } }
+
+    it "does not render meta" do
+      is_expected.to have_selector("a.dato-cms-link[href='https://renuo.ch/']")
+      is_expected.not_to have_selector("a.dato-cms-link[rel]")
+      is_expected.not_to have_selector("a.dato-cms-link[target]")
+    end
+  end
 end

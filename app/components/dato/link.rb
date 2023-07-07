@@ -24,7 +24,6 @@ class Dato::Link < Dato::DastNode
   private
 
   def extract_meta(type)
-    meta = @node.meta.find { |m| m.id == type }
-    meta&.value
+    @node.meta&.find { |m| m.id == type }&.value
   end
 end
