@@ -1,5 +1,5 @@
-<%= tag.a(**link_attributes) do %>
-  <% @node.children&.each do |node| %>
-    <%= render_node(node) %>
-  <% end %>
-<% end %>
+<%= tag.a(**link_attributes) do -%>
+  <% @node.children&.each do |node| -%>
+<%= render_node(node) -%>
+  <% end -%>
+<% end -%>

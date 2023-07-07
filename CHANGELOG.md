@@ -2,6 +2,7 @@
 
 * Ability to fetch `target` and `rel` attribute from dato link
 * Update README and dummy app
+* Fix whitespaces issues
 
 0.7.2
 

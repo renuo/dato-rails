@@ -15,6 +15,10 @@ RSpec.describe Dato::Span, type: :component do
     it "renders it inside the span" do
       is_expected.to have_selector("span.dato-cms-span", text: "Hello")
     end
+
+    it 'strips whitespaces' do
+      expect(rendered.to_html).to eq("<span class=\"dato-cms-span\">Hello</span>")
+    end
   end
 
   context 'when it has "underline" mark' do
@@ -22,6 +26,10 @@ RSpec.describe Dato::Span, type: :component do
 
     it "adds a text-decoration" do
       expect(rendered.css("span").attr("style").value).to eq("text-decoration: underline")
+    end
+
+    it 'strips whitespaces' do
+      expect(rendered.to_html).to eq("<span class=\"dato-cms-span\" style=\"text-decoration: underline\">Hello</span>")
     end
   end
 

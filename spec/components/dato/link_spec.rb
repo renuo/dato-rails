@@ -22,6 +22,10 @@ RSpec.describe Dato::Link, type: :component do
     is_expected.to have_selector("a.dato-cms-link span.dato-cms-span", text: "The best company!")
   end
 
+  it 'strips whitespaces' do
+    expect(rendered.to_html).to eq('<a href="https://renuo.ch/" class="dato-cms-link" rel="nofollow" target="_blank"><span class="dato-cms-span">The best company!</span></a>')
+  end
+
   context "when link has no meta" do
     let(:meta) { [] }
 
