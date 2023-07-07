@@ -1,3 +1,8 @@
+0.7.3
+
+* Ability to fetch `target` and `rel` attribute from dato link
+* Update README and dummy app
+
 0.7.2
 
 * Wrap `dato-cms-attribution` and `dato-cms-blockquote` into a figure tag

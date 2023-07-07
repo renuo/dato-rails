@@ -8,4 +8,19 @@ class Dato::Link < Dato::DastNode
   def generated_tag
     "a"
   end
+
+  def link_attributes
+    attr = {
+      "href" => @node.url,
+      "class" => "dato-cms-#{@node.type}",
+    }
+    %w[rel target].each { |type| attr[type] = extract_meta(type) }
+    attr
+  end
+
+  private
+
+  def extract_meta(type)
+    @node.meta&.find { |m| m.id == type }&.value
+  end
 end
