@@ -14,10 +14,7 @@ class Dato::Link < Dato::DastNode
       "href" => @node.url,
       "class" => "dato-cms-#{@node.type}",
     }
-    %w[rel target].each do |type|
-      value = extract_meta(type)
-      attr[type] = value if value
-    end
+    %w[rel target].each { |type| attr[type] = extract_meta(type) }
     attr
   end
 
