@@ -9,10 +9,30 @@ module Dato
                                      'X-Api-Version' => 3 })
     end
 
-    def create_from_url(url:)
+    def create_from_url(url)
       # Step 0: Save file locally
-      puts 'step 0'
+      file = download_file_from_url(url)
 
+      # Step 1: Request file upload permission
+      permission = request_file_upload_permission(file.path)
+      upload_url = permission[:url]
+      upload_id = permission[:id]
+
+      # Step 2: Upload file to storage bucket
+      upload_file_to_bucket(upload_url, file.path)
+
+      # Step 3: Create the actual upload
+      job_id = upload_file_to_dato(upload_id)
+
+      # Step 4: Retrieve the job result
+      retrieve_job_result(job_id)
+    rescue StandardError => e
+      puts "Error: #{e.message}"
+    end
+
+    private
+
+    def download_file_from_url(url)
       uri = URI.parse(url)
       file_type = File.extname(uri.path)
       file_contents = Net::HTTP.get(uri)
@@ -22,75 +42,69 @@ module Dato
       temp_file.rewind
       temp_file.close
 
-      puts "Downloading #{url} to #{temp_file.path}"
+      temp_file
+    end
 
-      # Step 1: Request file upload permission
-      puts 'step 1'
-
+    def request_file_upload_permission(path)
       data = {
         type: 'upload_request',
-        attributes: { filename: File.basename(temp_file.path) }
+        attributes: { filename: File.basename(path) }
       }
 
-      response = @http_headers.post(BASE_ITEM_URL, json: { data: })
-      upload_url = response.parse['data']['attributes']['url']
-      upload_id = response.parse['data']['id']
+      response = @http_headers.post(BASE_ITEM_URL, json: { data: data })
+      response = response.parse['data']
 
-      # Step 2: Upload file to storage bucket
-      puts 'step 2'
+      {
+        url: response['attributes']['url'],
+        id: response['id']
+      }
+    end
 
-      puts "Uploading to #{upload_url}"
+    def upload_file_to_bucket(url, path)
       s3_headers = HTTP.headers({ 'Content-Type' => 'application/octet-stream' })
-      response = s3_headers.put(upload_url, body: File.open(temp_file.path, &:read))
-      puts 'Upload complete'
+      s3_headers.put(url, body: File.open(path, &:read))
+    end
 
-      puts response.code
-
-      # Step 3: Create the actual upload
-      puts 'step 3'
-
-      new_headers = HTTP.headers({
-                                   'Content-Type' => 'application/vnd.api+json',
-                                   'X-Api-Version' => 3,
-                                   'Authorization' => @auth_header,
-                                   'Accept' => 'application/json',
-                                 })
-
-      puts 'creating dato upload'
+    def upload_file_to_dato(upload_id)
+      headers = {
+        'Content-Type' => 'application/vnd.api+json',
+        'X-Api-Version' => 3,
+        'Authorization' => @auth_header,
+        'Accept' => 'application/json',
+      }
+      headers = HTTP.headers(headers)
 
       data = {
-          "type": 'upload',
-          "attributes": {
-            "path": upload_id,
-            "author": 'DatoRails',
-            "copyright": '2020 DatoCMS',
-            "default_field_metadata": {
-              "en": {
-                "alt": 'A example image',
-                "title": 'Something sent by DatoRails',
-                "custom_data": {}
-              }
+        "type": 'upload',
+        "attributes": {
+          "path": upload_id,
+          "author": 'DatoRails',
+          "copyright": '2020 DatoCMS',
+          "default_field_metadata": {
+            "en": {
+              "alt": 'A example image',
+              "title": 'Something sent by DatoRails',
+              "custom_data": {}
             }
           }
+        }
       }
 
-      response = new_headers.post('https://site-api.datocms.com/uploads', json: { data: data } )
-      job_id = response.parse['data']['id']
+      response = headers.post('https://site-api.datocms.com/uploads', json: { data: data })
+      response.parse['data']['id']
+    end
 
-      # Step 4: Retrieve the job result
-      puts 'step 4'
-      job_headers = HTTP.headers({
-                                   'X-Api-Version' => 3,
-                                   'Authorization' => @auth_header,
-                                   'Accept' => 'application/json',
-                                   'Content-Type' => 'application/vnd.api+json'
-                                 })
+    def retrieve_job_result(job_id)
+      headers = {
+        'X-Api-Version' => 3,
+        'Authorization' => @auth_header,
+        'Accept' => 'application/json',
+        'Content-Type' => 'application/vnd.api+json'
+      }
 
-      response = job_headers.get("https://site-api.datocms.com/job-results/#{job_id}")
+      headers = HTTP.headers(headers)
 
-      response
-    rescue StandardError => e
-      puts "Error: #{e.message}"
+      headers.get("https://site-api.datocms.com/job-results/#{job_id}")
     end
   end
 end
