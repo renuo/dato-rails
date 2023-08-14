@@ -173,11 +173,19 @@ Dato::Client.new.items.destroy(item_id: '123')
 Dato Rails also supports file uploads. 
 These can be created either from a local file or from a url. 
 Basically all file types are supported, as long as they are valid in the CMS.
+In addition to the binary file, also attributes and metadata can be uploaded. 
+Both metadata and attributes are optional.
 
 ### Upload from Url
 
 ```ruby
-  Dato::Client.new.uploads.create_from_url(url: 'https://picsum.photos/seed/picsum/200/300https://picsum.photos/seed/picsum/200/300')
+Dato::Client.new.uploads.create_from_url(url: 'https://picsum.photos/seed/picsum/200/300')
+
+# attributes and metadata are optional
+attributes = { author: 'Dato Rails' }
+meta = { en: { title: 'Static Random Image', alt: 'some caption text' } }
+
+Dato::Client.new.uploads.create_from_url(url: 'https://picsum.photos/seed/picsum/200/300', attributes:, meta:)
 ```
 
 ### Upload from Local File
@@ -185,14 +193,11 @@ Basically all file types are supported, as long as they are valid in the CMS.
 ```ruby
 file = File.open('image.png')
 
-Dato::Client.new.uploads.create(path_to_file: file.path)
+# upload file without attributes / meta
+Dato::Client.new.uploads.create_from_file(path_to_file: file.path) 
 
-# Attribtues (optional) as well as metadata (optional) can be passed to the file upload methods:
-
-attributes = { author: 'John Doe', tags: 'tag1,tag2,tag3' }
-meta = { en: { title: 'Static Random Image', alt: 'some caption text' } }
-
-Dato::Client.new.uploads.create(path_to_file: file.path, attributes:, meta:)
+# upload file with attributes and meta
+Dato::Client.new.uploads.create_from_file(path_to_file: file.path, attributes:, meta:)
 ```
 
 ## Configuration
