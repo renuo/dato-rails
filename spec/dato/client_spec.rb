@@ -69,8 +69,8 @@ RSpec.describe Dato::Client, :vcr do
 
   describe "upload" do
     it "can upload an image" do
-      response = client.uploads.create_from_url("https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg")
-      expect(response.code).to eq(200)
+      job_id = client.uploads.create_from_url(url: "https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg")
+      expect(job_id).to be_a(String)
     end
   end
 end
