@@ -67,7 +67,7 @@ RSpec.describe Dato::Client, :vcr do
     end
   end
 
-  describe "upload", :preserve_exact_body_bytes do
+  describe "upload" do
     it "can upload image from url" do
       result = client.uploads.create_from_url("https://picsum.photos/seed/picsum/200/300", filename: "picsum.png")
       expect(result).to eq({upload_id: "67210700"})
