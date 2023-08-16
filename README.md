@@ -177,27 +177,24 @@ In addition to the binary file, also attributes and metadata can be uploaded.
 Both metadata and attributes are optional.
 
 ### Upload from Url
-
 ```ruby
 Dato::Client.new.uploads.create_from_url(url: 'https://picsum.photos/seed/picsum/200/300')
-
-# attributes and metadata are optional
-attributes = { author: 'Dato Rails' }
-meta = { en: { title: 'Static Random Image', alt: 'some caption text' } }
-
 Dato::Client.new.uploads.create_from_url(url: 'https://picsum.photos/seed/picsum/200/300', attributes:, meta:)
 ```
 
 ### Upload from Local File
-
 ```ruby
 file = File.open('image.png')
 
-# upload file without attributes / meta
-Dato::Client.new.uploads.create_from_file(path_to_file: file.path) 
-
-# upload file with attributes and meta
+Dato::Client.new.uploads.create_from_file(path_to_file: file.path)
 Dato::Client.new.uploads.create_from_file(path_to_file: file.path, attributes:, meta:)
+```
+
+### Optional: Attributes and metadata
+
+```ruby
+attributes = { author: 'Dato Rails' }
+meta = { en: { title: 'Static Random Image', alt: 'some caption text' } }
 ```
 
 ## Configuration

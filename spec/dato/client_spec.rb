@@ -69,14 +69,14 @@ RSpec.describe Dato::Client, :vcr do
 
   describe "upload", :preserve_exact_body_bytes do
     it "can upload image from url" do
-      result = client.uploads.create_from_url("https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg", filename: "wikipedia.png")
-      expect(result).to eq({upload_id: "/93363/1692024465-wikipedia.png"})
+      result = client.uploads.create_from_url("https://picsum.photos/seed/picsum/200/300", filename: "picsum.png")
+      expect(result).to eq({upload_id: "/93363/1692182042-picsum.png"})
     end
 
     it "can upload image from local file" do
-      file_path = Rails.root.join("images", "git.png")
-      result = client.uploads.create_from_file(file_path, filename: "git.png")
-      expect(result).to eq({upload_id: "/93363/1692024593-git.png"})
+      file_path = Rails.root.join("images", "renuo.svg")
+      result = client.uploads.create_from_file(file_path, filename: "renuo.svg")
+      expect(result).to eq({upload_id: "/93363/1692182042-renuo.svg"})
     end
   end
 end
