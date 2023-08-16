@@ -30,7 +30,8 @@ module Dato
 
       upload_file_to_bucket(url: upload_url, path: path_to_file)
 
-      upload_file_to_dato(upload_id:, attributes:, meta:)
+      job_id = upload_file_to_dato(upload_id:, attributes:)
+      upload_id = retrieve_job_result(job_id).parse['data']['attributes']['payload']['data']['id']
 
       {upload_id:}
     end
@@ -79,13 +80,12 @@ module Dato
     end
 
     def upload_file_to_bucket(url:, path:)
-      s3_headers = HTTP.headers({"Content-Type" => "application/octet-stream"})
+      s3_headers = HTTP.headers({"Content-Type" => MimeMagic.by_magic(File.open(path)).type || "application/octet-stream"})
       s3_headers.put(url, body: File.read(path))
     end
 
-    def upload_file_to_dato(upload_id:, attributes: nil, meta: nil)
+    def upload_file_to_dato(upload_id:, attributes: nil)
       attributes ||= {}
-      meta ||= {en: {}}
 
       headers = {
         "Content-Type" => "application/vnd.api+json",
@@ -99,8 +99,7 @@ module Dato
         type: "upload",
         attributes: {
           path: upload_id,
-          **attributes,
-          default_field_metadata: meta
+          **attributes
         }
       }
 

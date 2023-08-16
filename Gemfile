@@ -8,6 +8,8 @@ group :development do
   gem "sqlite3"
 end
 
+gem "mimemagic"
+
 gem "gqli"
 
 # Start debugger with binding.b -- Read more: https://github.com/ruby/debug

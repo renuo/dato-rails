@@ -179,7 +179,7 @@ Both metadata and attributes are optional.
 ### Upload from Url
 ```ruby
 Dato::Client.new.uploads.create_from_url(url: 'https://picsum.photos/seed/picsum/200/300')
-Dato::Client.new.uploads.create_from_url(url: 'https://picsum.photos/seed/picsum/200/300', attributes:, meta:)
+Dato::Client.new.uploads.create_from_url(url: 'https://picsum.photos/seed/picsum/200/300', attributes:)
 ```
 
 ### Upload from Local File
@@ -187,14 +187,14 @@ Dato::Client.new.uploads.create_from_url(url: 'https://picsum.photos/seed/picsum
 file = File.open('image.png')
 
 Dato::Client.new.uploads.create_from_file(path_to_file: file.path)
-Dato::Client.new.uploads.create_from_file(path_to_file: file.path, attributes:, meta:)
+Dato::Client.new.uploads.create_from_file(path_to_file: file.path, attributes:)
 ```
 
 ### Optional: Attributes and metadata
 
 ```ruby
-attributes = { author: 'Dato Rails' }
 meta = { en: { title: 'Static Random Image', alt: 'some caption text' } }
+attributes = { author: 'Dato Rails', default_field_metadata: meta }
 ```
 
 ## Configuration
