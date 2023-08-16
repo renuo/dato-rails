@@ -1,0 +1,336 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://site-api.datocms.com/upload-requests
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"upload_request","attributes":{"filename":"renuo.svg"}}}'
+    headers:
+      Accept:
+      - application/json
+      X-Api-Version:
+      - '3'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - site-api.datocms.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 16 Aug 2023 14:55:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 7f7a84f50e35ce93-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Etag:
+      - W/"490fa9236487ea16ed462f99118be6d6"
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Vary:
+      - Accept,Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-environment, x-organization, x-site-domain,
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
+      Access-Control-Max-Age:
+      - '1728000'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Api-Version:
+      - '3'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Environment:
+      - main
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Queue-Time:
+      - 2ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '56'
+      X-Request-Id:
+      - f94f5729-25a9-4071-b812-004a0eeceac5
+      X-Runtime:
+      - '0.015188'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"/93363/1692197737-renuo.svg","type":"upload_request","attributes":{"url":"https://datosrl-images.s3.eu-west-1.amazonaws.com/93363/1692197737-renuo.svg?x-amz-acl=public-read&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2WEP2FZ4IZ5S22OH%2F20230816%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230816T145537Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=3fea3ac3e2a04572c3c16a36ed23c779fe3d9af75ea3ed5885fbbc351200714f"}}}'
+  recorded_at: Wed, 16 Aug 2023 14:55:37 GMT
+- request:
+    method: put
+    uri: https://datosrl-images.s3.eu-west-1.amazonaws.com/93363/1692197737-renuo.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2WEP2FZ4IZ5S22OH/20230816/eu-west-1/s3/aws4_request&X-Amz-Date=20230816T145537Z&X-Amz-Expires=900&X-Amz-Signature=3fea3ac3e2a04572c3c16a36ed23c779fe3d9af75ea3ed5885fbbc351200714f&X-Amz-SignedHeaders=host&x-amz-acl=public-read
+    body:
+      encoding: UTF-8
+      string: '<svg class="logo" height="75" viewBox="0 0 65.89 68.21" width="75"
+        xmlns="http://www.w3.org/2000/svg"><path class="cls-1" d="M59,11.65a2.88,2.88,0,0,1-.59-.06,3.62,3.62,0,0,1-.56-.17,3.25,3.25,0,0,1-.52-.28,2.74,2.74,0,0,1-.83-.83,3.15,3.15,0,0,1-.28-.51A3.62,3.62,0,0,1,56,9.24a3.51,3.51,0,0,1,0-1.18,3.62,3.62,0,0,1,.17-.56A3.74,3.74,0,0,1,56.45,7a3.16,3.16,0,0,1,.37-.45,2.82,2.82,0,0,1,.46-.38,3.2,3.2,0,0,1,.52-.27,2.78,2.78,0,0,1,.56-.17,2.88,2.88,0,0,1,1.17,0,2.78,2.78,0,0,1,.56.17,3.2,3.2,0,0,1,.52.27,3.32,3.32,0,0,1,.46.38,4,4,0,0,1,.37.45,2.86,2.86,0,0,1,.27.52,2.81,2.81,0,0,1,.18.56,3,3,0,0,1,.06.59,3.06,3.06,0,0,1-.88,2.12,3.22,3.22,0,0,1-1,.65,3.62,3.62,0,0,1-.56.17A2.86,2.86,0,0,1,59,11.65Z"
+        stroke-width="10"></path><path class="cls-1" d="M46.14,11.65a3,3,0,0,1-3-3,3.92,3.92,0,0,1,0-.59,2.81,2.81,0,0,1,.18-.56A2.86,2.86,0,0,1,43.64,7,3.23,3.23,0,0,1,44,6.53a2.74,2.74,0,0,1,.45-.38A3.2,3.2,0,0,1,45,5.88a2.78,2.78,0,0,1,.56-.17,2.88,2.88,0,0,1,1.17,0,2.78,2.78,0,0,1,.56.17,3.2,3.2,0,0,1,.52.27,2.82,2.82,0,0,1,.46.38,3.16,3.16,0,0,1,.37.45,3.74,3.74,0,0,1,.28.52,3.62,3.62,0,0,1,.17.56,2.93,2.93,0,0,1,0,1.18,3.62,3.62,0,0,1-.17.56,3.15,3.15,0,0,1-.28.51,2.74,2.74,0,0,1-.83.83,3.25,3.25,0,0,1-.52.28,3.62,3.62,0,0,1-.56.17A2.86,2.86,0,0,1,46.14,11.65Z"></path><path
+        class="cls-1" d="M59,28.73a3.07,3.07,0,0,1-2.13-.87,3.22,3.22,0,0,1-.65-1,3.62,3.62,0,0,1-.17-.56,2.88,2.88,0,0,1,0-1.17,3.62,3.62,0,0,1,.17-.56,3.22,3.22,0,0,1,.65-1,3.13,3.13,0,0,1,4.25,0,4.14,4.14,0,0,1,.37.46,3.25,3.25,0,0,1,.28.52,3.62,3.62,0,0,1,.17.56,2.88,2.88,0,0,1,0,1.17,3.62,3.62,0,0,1-.17.56,3.25,3.25,0,0,1-.28.52,4.14,4.14,0,0,1-.37.46A3.07,3.07,0,0,1,59,28.73Z"></path><path
+        class="cls-1" d="M7.71,28.74a3,3,0,0,1,0-6H46.14a3,3,0,0,1,0,6Z"></path><path
+        class="cls-1" d="M58.94,45.81H33.33a3,3,0,0,1,0-6H58.94a3,3,0,0,1,0,6Z"></path><path
+        class="cls-1" d="M7.71,11.66a3,3,0,0,1-.59-.06,3.62,3.62,0,0,1-.56-.17,3.15,3.15,0,0,1-.51-.28,2.76,2.76,0,0,1-.46-.37,3,3,0,0,1-.88-2.12,2.88,2.88,0,0,1,.06-.59,3.62,3.62,0,0,1,.17-.56A3.25,3.25,0,0,1,5.22,7a2.69,2.69,0,0,1,.37-.45,2.82,2.82,0,0,1,.46-.38,2.49,2.49,0,0,1,.51-.27,2.78,2.78,0,0,1,.56-.17,2.93,2.93,0,0,1,1.18,0,2.78,2.78,0,0,1,.56.17,2.86,2.86,0,0,1,.52.27,3.23,3.23,0,0,1,.45.38,2.74,2.74,0,0,1,.38.45,3.2,3.2,0,0,1,.27.52,2.78,2.78,0,0,1,.17.56,2.88,2.88,0,0,1,0,1.17,2.6,2.6,0,0,1-.17.56,2.8,2.8,0,0,1-.65,1,3.16,3.16,0,0,1-.45.37,3.74,3.74,0,0,1-.52.28,3.62,3.62,0,0,1-.56.17A3,3,0,0,1,7.71,11.66Z"></path><path
+        class="cls-1" d="M33.33,11.66H20.52a3,3,0,0,1,0-6H33.33a3,3,0,0,1,0,6Z"></path><path
+        class="cls-1" d="M12,62.89H7.71a3,3,0,1,1,0-6H12a3,3,0,1,1,0,6Z"></path><path
+        class="cls-1" d="M41.87,62.89H24.79a3,3,0,0,1,0-6H41.87a3,3,0,0,1,0,6Z"></path><path
+        class="cls-1" d="M20.52,45.81a3,3,0,0,1-2.13-.88,4,4,0,0,1-.37-.45,2.86,2.86,0,0,1-.27-.52,2.81,2.81,0,0,1-.18-.56,3.92,3.92,0,0,1-.05-.59,3.79,3.79,0,0,1,.05-.58,2.9,2.9,0,0,1,.18-.57,2.49,2.49,0,0,1,.27-.51,3.38,3.38,0,0,1,.37-.46,3,3,0,0,1,2.71-.82,3.62,3.62,0,0,1,.56.17,3.22,3.22,0,0,1,1,.65,2.76,2.76,0,0,1,.37.46,3.15,3.15,0,0,1,.28.51,3.74,3.74,0,0,1,.17.57,2.86,2.86,0,0,1,.06.58,3,3,0,0,1-.06.59,3.62,3.62,0,0,1-.17.56,3.74,3.74,0,0,1-.28.52,3.16,3.16,0,0,1-.37.45,3.32,3.32,0,0,1-.46.38,3.2,3.2,0,0,1-.52.27,2.78,2.78,0,0,1-.56.17A2.86,2.86,0,0,1,20.52,45.81Z"></path><path
+        class="cls-1" d="M7.71,45.81a3,3,0,0,1-2.12-.88,3.16,3.16,0,0,1-.37-.45A3.74,3.74,0,0,1,4.94,44a3.62,3.62,0,0,1-.17-.56,3,3,0,0,1-.06-.59,2.86,2.86,0,0,1,.06-.58,3.74,3.74,0,0,1,.17-.57,3.15,3.15,0,0,1,.28-.51,2.76,2.76,0,0,1,.37-.46,3,3,0,0,1,2.71-.82,3.62,3.62,0,0,1,.56.17,3.74,3.74,0,0,1,.52.28,3.16,3.16,0,0,1,.45.37,2.82,2.82,0,0,1,.38.46,3.1,3.1,0,0,1,.27.51,3.16,3.16,0,0,1,.23,1.15,3,3,0,0,1-.06.59,2.78,2.78,0,0,1-.17.56,3.67,3.67,0,0,1-.27.52,3.5,3.5,0,0,1-.83.83,3.67,3.67,0,0,1-.52.27,2.78,2.78,0,0,1-.56.17A3,3,0,0,1,7.71,45.81Z"></path><path
+        class="cls-1" d="M58.94,62.89H54.67a3,3,0,0,1,0-6h4.27a3,3,0,0,1,0,6Z"></path></svg>
+
+        '
+    headers:
+      Content-Type:
+      - image/svg+xml
+      Connection:
+      - close
+      Host:
+      - datosrl-images.s3.eu-west-1.amazonaws.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - 7VGEcCaA2S9wcRpo95bNdRu56KBadI0yPb+Unz5yRVlaYWElIwd976T+otsGfqUa1lcsjnbZSMU=
+      X-Amz-Request-Id:
+      - CTXTM9SGXTDHZWNT
+      Date:
+      - Wed, 16 Aug 2023 14:55:39 GMT
+      X-Amz-Version-Id:
+      - o_nw83nxyXvomu0aIOnAHvskc8.ls0wT
+      X-Amz-Server-Side-Encryption:
+      - AES256
+      Etag:
+      - '"849df5a107b556a3bea01027b191a56a"'
+      Server:
+      - AmazonS3
+      Content-Length:
+      - '0'
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Wed, 16 Aug 2023 14:55:38 GMT
+- request:
+    method: post
+    uri: https://site-api.datocms.com/uploads
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"upload","attributes":{"path":"/93363/1692197737-renuo.svg"}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      X-Api-Version:
+      - '3'
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - site-api.datocms.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Date:
+      - Wed, 16 Aug 2023 14:55:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 7f7a84f79ed5ce93-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Vary:
+      - Accept,Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-environment, x-organization, x-site-domain,
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
+      Access-Control-Max-Age:
+      - '1728000'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Api-Version:
+      - '3'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Environment:
+      - main
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Queue-Time:
+      - 1ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '55'
+      X-Request-Id:
+      - 16d21dbc-059a-4b98-a1f6-acb8720bb080
+      X-Runtime:
+      - '0.011460'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"0290a3da63871bc4d3457719","type":"job"}}'
+  recorded_at: Wed, 16 Aug 2023 14:55:38 GMT
+- request:
+    method: get
+    uri: https://site-api.datocms.com/job-results/0290a3da63871bc4d3457719
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Version:
+      - '3'
+      Accept:
+      - application/json
+      Content-Type:
+      - application/vnd.api+json
+      Connection:
+      - close
+      Host:
+      - site-api.datocms.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 16 Aug 2023 14:55:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 7f7a84f8cd693b57-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Etag:
+      - W/"e76b019706b4e4f9a85f2a97b1b748e3"
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Vary:
+      - Accept,Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-environment, x-organization, x-site-domain,
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
+      Access-Control-Max-Age:
+      - '1728000'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Api-Version:
+      - '3'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Environment:
+      - main
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Queue-Time:
+      - 1ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '54'
+      X-Request-Id:
+      - a0c32169-6074-489b-ac7a-3c5eae09c377
+      X-Runtime:
+      - '0.017774'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"0290a3da63871bc4d3457719","type":"job_result","attributes":{"payload":{"data":{"id":"67210701","type":"upload","attributes":{"size":3952,"width":75,"height":75,"path":"/93363/1692197737-renuo.svg","format":"svg","author":null,"notes":null,"copyright":null,"default_field_metadata":{"en":{"alt":null,"title":null,"custom_data":{},"focal_point":null},"de-CH":{"alt":null,"title":null,"custom_data":{},"focal_point":null}},"is_image":true,"created_at":"2023-08-16T14:55:38.316Z","updated_at":"2023-08-16T14:55:38.319Z","url":"https://www.datocms-assets.com/93363/1692197737-renuo.svg","tags":[],"filename":"renuo.svg","basename":"renuo","exif_info":{},"mime_type":"image/svg+xml","colors":[],"smart_tags":[],"duration":null,"frame_rate":null,"mux_playback_id":null,"blurhash":null,"thumbhash":null,"mux_mp4_highest_res":null,"md5":"849df5a107b556a3bea01027b191a56a"},"relationships":{"creator":{"data":{"id":"197178","type":"access_token"}}}}},"status":201,"statusText":"Created"}}}'
+  recorded_at: Wed, 16 Aug 2023 14:55:38 GMT
+recorded_with: VCR 6.1.0

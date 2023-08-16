@@ -1,0 +1,374 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://picsum.photos/seed/picsum/200/300
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - picsum.photos
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Wed, 16 Aug 2023 14:55:36 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Location:
+      - https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Vary:
+      - Origin
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=cE6cihfyM%2B7NGfSSBxT9o03iFOY61Rgoj5yIlwbphN5%2B2m7aGrGYcUxzYGyv1k84YxHZ2JboEMcqX1aaSC8anYIbI8ZNyItiivf4h1yVKEOF0p%2BYV830nk5qRYnHm7g%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=15552000
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7f7a84ee68a83b5e-GVA
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 16 Aug 2023 14:55:36 GMT
+- request:
+    method: post
+    uri: https://site-api.datocms.com/upload-requests
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"upload_request","attributes":{"filename":"picsum.png"}}}'
+    headers:
+      Accept:
+      - application/json
+      X-Api-Version:
+      - '3'
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - site-api.datocms.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 16 Aug 2023 14:55:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 7f7a84ef4fb2ce9f-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Etag:
+      - W/"1d4b3248fc5be828ec02ecae8dca0e94"
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Vary:
+      - Accept,Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-environment, x-organization, x-site-domain,
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
+      Access-Control-Max-Age:
+      - '1728000'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Api-Version:
+      - '3'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Environment:
+      - main
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Queue-Time:
+      - "-1ms"
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '59'
+      X-Request-Id:
+      - 04a998b3-edee-45f0-85a3-f8903ad91e3b
+      X-Runtime:
+      - '0.016210'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"/93363/1692197736-picsum.png","type":"upload_request","attributes":{"url":"https://datosrl-images.s3.eu-west-1.amazonaws.com/93363/1692197736-picsum.png?x-amz-acl=public-read&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2WEP2FZ4IZ5S22OH%2F20230816%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230816T145536Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=7337cbc97f2cdd71e9f133ec74245332c59a79f37cebe02376759d31b17d5f43"}}}'
+  recorded_at: Wed, 16 Aug 2023 14:55:37 GMT
+- request:
+    method: put
+    uri: https://datosrl-images.s3.eu-west-1.amazonaws.com/93363/1692197736-picsum.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2WEP2FZ4IZ5S22OH/20230816/eu-west-1/s3/aws4_request&X-Amz-Date=20230816T145536Z&X-Amz-Expires=900&X-Amz-Signature=7337cbc97f2cdd71e9f133ec74245332c59a79f37cebe02376759d31b17d5f43&X-Amz-SignedHeaders=host&x-amz-acl=public-read
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/octet-stream
+      Connection:
+      - close
+      Host:
+      - datosrl-images.s3.eu-west-1.amazonaws.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - aXTi5HRMLA3+Gv9jcgMF38HUT/9WqjpseduXF4KnRkfuO1xe1UHv0jLgKMlxnJWO00l6ZNEXQgY=
+      X-Amz-Request-Id:
+      - 8V4N5VJ7713P3FXJ
+      Date:
+      - Wed, 16 Aug 2023 14:55:38 GMT
+      X-Amz-Version-Id:
+      - L79BnqhLwqMKVR_RHdAYEs4LWylJZHfk
+      X-Amz-Server-Side-Encryption:
+      - AES256
+      Etag:
+      - '"d41d8cd98f00b204e9800998ecf8427e"'
+      Server:
+      - AmazonS3
+      Content-Length:
+      - '0'
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Wed, 16 Aug 2023 14:55:37 GMT
+- request:
+    method: post
+    uri: https://site-api.datocms.com/uploads
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"upload","attributes":{"path":"/93363/1692197736-picsum.png"}}}'
+    headers:
+      Content-Type:
+      - application/vnd.api+json
+      X-Api-Version:
+      - '3'
+      Accept:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - site-api.datocms.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Date:
+      - Wed, 16 Aug 2023 14:55:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 7f7a84f23d553b64-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Vary:
+      - Accept,Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-environment, x-organization, x-site-domain,
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
+      Access-Control-Max-Age:
+      - '1728000'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Api-Version:
+      - '3'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Environment:
+      - main
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Queue-Time:
+      - 0ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '58'
+      X-Request-Id:
+      - 7feab277-2b30-4689-98c6-2e171a8b6d3f
+      X-Runtime:
+      - '0.011060'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"7929e389e613bc6ae91322a5","type":"job"}}'
+  recorded_at: Wed, 16 Aug 2023 14:55:37 GMT
+- request:
+    method: get
+    uri: https://site-api.datocms.com/job-results/7929e389e613bc6ae91322a5
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Api-Version:
+      - '3'
+      Accept:
+      - application/json
+      Content-Type:
+      - application/vnd.api+json
+      Connection:
+      - close
+      Host:
+      - site-api.datocms.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 16 Aug 2023 14:55:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 7f7a84f3db473b57-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Etag:
+      - W/"3302c162b6d12b685a2c3fe0f69907aa"
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Vary:
+      - Accept,Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-environment, x-organization, x-site-domain,
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
+      Access-Control-Max-Age:
+      - '1728000'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Api-Version:
+      - '3'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Environment:
+      - main
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Queue-Time:
+      - 1ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '57'
+      X-Request-Id:
+      - 8b8a3ca6-8ccf-4bc8-8f9b-505c80400a49
+      X-Runtime:
+      - '0.011933'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"7929e389e613bc6ae91322a5","type":"job_result","attributes":{"payload":{"data":{"id":"67210700","type":"upload","attributes":{"size":0,"width":null,"height":null,"path":"/93363/1692197736-picsum","format":null,"author":null,"notes":null,"copyright":null,"default_field_metadata":{"en":{"alt":null,"title":null,"custom_data":{},"focal_point":null},"de-CH":{"alt":null,"title":null,"custom_data":{},"focal_point":null}},"is_image":false,"created_at":"2023-08-16T14:55:37.592Z","updated_at":"2023-08-16T14:55:37.595Z","url":"https://www.datocms-assets.com/93363/1692197736-picsum","tags":[],"filename":"picsum","basename":"picsum","exif_info":{},"mime_type":"application/octet-stream","colors":[],"smart_tags":[],"duration":null,"frame_rate":null,"mux_playback_id":null,"blurhash":null,"thumbhash":null,"mux_mp4_highest_res":null,"md5":"d41d8cd98f00b204e9800998ecf8427e"},"relationships":{"creator":{"data":{"id":"197178","type":"access_token"}}}}},"status":201,"statusText":"Created"}}}'
+  recorded_at: Wed, 16 Aug 2023 14:55:37 GMT
+recorded_with: VCR 6.1.0
