@@ -1,3 +1,7 @@
+0.7.4
+* Added file upload features
+* Updated README to reflect feature additions
+
 0.7.3
 
 * Ability to fetch `target` and `rel` attribute from dato link
