@@ -16,15 +16,15 @@ module Dato
       @http_headers = HTTP.headers(headers)
     end
 
-    def create_from_url(url, filename: nil, attributes: nil, meta: nil)
+    def create_from_url(url, filename: nil, attributes: nil)
       file = download_file_from_url(url)
-      result = create_from_file(file.path, filename:, attributes:, meta:)
+      result = create_from_file(file.path, filename:, attributes:)
       file.delete
 
       result
     end
 
-    def create_from_file(path_to_file, filename: nil, attributes: nil, meta: nil)
+    def create_from_file(path_to_file, filename: nil, attributes: nil)
       request = request_file_upload_permission(filename || path_to_file)
       upload_url = request[:url]
       upload_id = request[:id]
@@ -52,18 +52,12 @@ module Dato
     end
 
     def poll_job_result(job_id)
-      attempts = 0
-
-      while attempts < MAX_JOB_POLLING_RETRIES
-        begin
-          response = retrieve_job_result(job_id).parse
-          upload_id = response["data"]["attributes"]["payload"]["data"]["id"]
-          return upload_id
-        rescue
-          attempts += 1
-          puts "Upload job retrieval failed, trying again (ATTEMPT #{attempts} of #{MAX_JOB_POLLING_RETRIES})"
-          sleep(attempts) # exponential by default
-        end
+      MAX_JOB_POLLING_RETRIES.times do |attempt|
+        response = retrieve_job_result(job_id).parse
+        upload_id = response["data"]["attributes"]["payload"]["data"]["id"]
+        return upload_id
+      rescue StandardError
+        sleep(attempt)
       end
     end
 
