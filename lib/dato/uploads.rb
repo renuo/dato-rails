@@ -3,6 +3,7 @@
 module Dato
   class Uploads
     BASE_ITEM_URL = "https://site-api.datocms.com/upload-requests"
+    MAX_JOB_POLLING_RETRIES = 15
 
     def initialize(api_token)
       @auth_header = "Bearer #{api_token}"
@@ -31,7 +32,8 @@ module Dato
       upload_file_to_bucket(url: upload_url, path: path_to_file)
 
       job_id = upload_file_to_dato(upload_id:, attributes:)
-      upload_id = retrieve_job_result(job_id).parse["data"]["attributes"]["payload"]["data"]["id"]
+
+      upload_id = poll_job_result(job_id)
 
       {upload_id:}
     end
@@ -47,6 +49,22 @@ module Dato
       headers = HTTP.headers(headers)
 
       headers.get("https://site-api.datocms.com/job-results/#{job_id}")
+    end
+
+    def poll_job_result(job_id)
+      attempts = 0
+
+      while attempts < MAX_JOB_POLLING_RETRIES
+        begin
+          response = retrieve_job_result(job_id).parse
+          upload_id = response["data"]["attributes"]["payload"]["data"]["id"]
+          return upload_id
+        rescue
+          attempts += 1
+          puts "Upload job retrieval failed, trying again (ATTEMPT #{attempts} of #{MAX_JOB_POLLING_RETRIES})"
+          sleep(attempts) # exponential by default
+        end
+      end
     end
 
     private

@@ -1,3 +1,6 @@
+0.7.5
+* Hotfix, added job polling to file upload
+
 0.7.4
 * Added file upload features
 * Updated README to reflect feature additions

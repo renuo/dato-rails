@@ -173,6 +173,7 @@ Dato::Client.new.items.destroy(item_id: '123')
 Dato Rails also supports file uploads. 
 These can be created either from a local file or from a url. 
 Basically all file types are supported, as long as they are valid in the CMS.
+Beware that file upload is synchronous and job retrieval is done by polling. 
 
 > In addition to the binary file, also attributes and metadata can be uploaded. 
 Both metadata and attributes are optional.
