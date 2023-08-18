@@ -78,5 +78,21 @@ RSpec.describe Dato::Client, :vcr do
       result = client.uploads.create_from_file(file_path, filename: "renuo.svg")
       expect(result).to eq({upload_id: "67210701"})
     end
+
+    it "can upload image to a cms model" do
+      item_type_id = "1318857" # your author model id
+
+      file_path = Rails.root.join("images", "renuo.svg")
+      result = client.uploads.create_from_file(file_path, filename: "renuo.svg")
+      upload_id = result[:upload_id]
+
+      response = client.items.create(attributes: {name: "Hello world", picture: result}, item_type_id:)
+      expect(response.code).to eq(201)
+      item_id = response.parse["data"]["id"]
+      response = client.items.find(item_id:)
+
+      expect(response.code).to eq(200)
+      expect(response.parse['data']['attributes']['picture']['upload_id']).to eq(upload_id)
+    end
   end
 end
