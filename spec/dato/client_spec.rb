@@ -6,6 +6,7 @@ RSpec.describe Dato::Client, :vcr do
   let(:preview) { false }
   let(:live) { false }
   let(:client) { described_class.new(preview:, live:) }
+  let(:item_type_id) { ENV["TEST_MODEL_TYPE_ID"] }
 
   it "can execute a query without errors" do
     response = client.execute!(homepage_query)
@@ -37,26 +38,25 @@ RSpec.describe Dato::Client, :vcr do
   end
 
   describe "CRUD operations" do
-    let(:item_type_id) { "4404" }
     it "can create, update and delete an item" do
-      response = client.items.create(attributes: {title: "Hello world"}, item_type_id: item_type_id)
+      response = client.items.create(attributes: {name: "Hello world"}, item_type_id: item_type_id)
       item_id = response.parse["data"]["id"]
       expect(response.code).to eq(201)
 
       response = client.items.all(item_type_id: item_type_id)
-      expect(response.parse["data"].last["attributes"]["title"]).to eq("Hello world")
+      expect(response.parse["data"].first["attributes"]["name"]).to eq("Hello world")
       expect(response.code).to eq(200)
 
       response = client.items.find(item_id: item_id)
       expect(response.parse["data"]["id"]).to eq(item_id)
-      expect(response.parse["data"]["attributes"]["title"]).to eq("Hello world")
+      expect(response.parse["data"]["attributes"]["name"]).to eq("Hello world")
       expect(response.code).to eq(200)
 
-      response = client.items.update(attributes: {title: "Hello world 2"}, item_id: item_id)
+      response = client.items.update(attributes: {name: "Hello world 2"}, item_id: item_id)
       expect(response.code).to eq(200)
 
       response = client.items.find(item_id: item_id)
-      expect(response.parse["data"]["attributes"]["title"]).to eq("Hello world 2")
+      expect(response.parse["data"]["attributes"]["name"]).to eq("Hello world 2")
       expect(response.code).to eq(200)
 
       response = client.items.destroy(item_id: item_id)
@@ -70,18 +70,16 @@ RSpec.describe Dato::Client, :vcr do
   describe "upload" do
     it "can upload image from url" do
       result = client.uploads.create_from_url("https://picsum.photos/seed/picsum/200/300", filename: "picsum.png")
-      expect(result).to eq({upload_id: "67210700"})
+      expect(result).to eq({upload_id: "55075852"})
     end
 
     it "can upload image from local file" do
       file_path = Rails.root.join("images", "renuo.svg")
       result = client.uploads.create_from_file(file_path, filename: "renuo.svg")
-      expect(result).to eq({upload_id: "67210701"})
+      expect(result).to eq({upload_id: "55075853"})
     end
 
     it "can upload image to a cms model" do
-      item_type_id = "1318857" # your author model id
-
       file_path = Rails.root.join("images", "renuo.svg")
       result = client.uploads.create_from_file(file_path, filename: "renuo.svg")
       upload_id = result[:upload_id]

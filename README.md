@@ -280,7 +280,8 @@ You can now clone the dato-rails project
 
 
 You then need to set a `DATO_API_TOKEN=abcd123x` in the `.env` file on the root of your project
-to consume data from your project.
+to consume data from your project. For testing purposes, set `TEST_MODEL_TYPE_ID=1234` in the `.env` file
+with the id of the author model type in your project.
 
 Then, run `bundle exec rspec` to run the tests. 
 
