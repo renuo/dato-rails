@@ -1,3 +1,7 @@
+0.7.5
+* Hotfix: Fix a bug that caused file upload to return a 404
+* Changed the API to return job_id instead of upload_id
+
 0.7.4
 * Added file upload features
 * Updated README to reflect feature additions

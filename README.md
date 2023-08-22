@@ -173,6 +173,9 @@ Dato::Client.new.items.destroy(item_id: '123')
 Dato Rails also supports file uploads. 
 These can be created either from a local file or from a url. 
 Basically all file types are supported, as long as they are valid in the CMS.
+Be aware that job result retrieval is not synchronous, so you may need to 
+implement some kind of polling to check if the upload is finished.
+The create method returns a job id, which can be used to retrieve the upload result.
 
 > In addition to the binary file, also attributes and metadata can be uploaded. 
 Both metadata and attributes are optional.
@@ -203,7 +206,26 @@ attributes = { author: 'Dato Rails', default_field_metadata: meta }
 ```ruby
 Dato::Client.new.uploads.create_from_url('https://picsum.photos/seed/picsum/200/300', filename: 'test.png')
 Dato::Client.new.uploads.create_from_file(file.path, filename: 'test.png')
+```
 
+
+### Getting the upload id
+As the file upload is asynchronous, you may need to implement some kind of polling to check if the upload is finished. With the retrieve_job_result method you can retrieve the upload id from the job result.
+```ruby
+def poll_job_result(client, job_id, max_retries:) 
+  # Synchronously retrieve the job result
+  max_retries.times do |attempt|
+    response = client.uploads.retrieve_job_result(job_id).parse
+    unless response["data"]["attributes"].nil?
+      upload_id = response["data"]["attributes"]["payload"]["data"]["id"]
+      return upload_id
+    end
+    sleep(attempt)
+  end
+end
+
+job_id = client.uploads.create_from_file(file.path)[:job_id]
+upload_id = poll_job_result(client, job_id, max_retries: 15)
 ```
 
 ## Configuration
