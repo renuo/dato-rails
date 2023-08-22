@@ -70,14 +70,12 @@ RSpec.describe Dato::Client, :vcr do
   describe "upload" do
     it "can upload image from url" do
       result = client.uploads.create_from_url("https://picsum.photos/seed/picsum/200/300", filename: "picsum.png")
-      # expect(result).to eq({upload_id: "55075852"})
       expect(result).to eq({job_id: "bbe064102bf8fa9ecb528a9c"})
     end
 
     it "can upload image from local file" do
       file_path = Rails.root.join("images", "renuo.svg")
       result = client.uploads.create_from_file(file_path, filename: "renuo.svg")
-      # expect(result).to eq({upload_id: "55075853"})
       expect(result).to eq({job_id: "0b432c23e0afca0f666e93c8"})
     end
 
