@@ -26,7 +26,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 14 Feb 2023 09:13:41 GMT
+      - Fri, 18 Aug 2023 08:57:41 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -54,9 +54,9 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7994b06f3a36ce97-GVA
+      - 7f88f35f7deaceab-GVA
     body:
       encoding: UTF-8
-      string: '{"url":"https://graphql-listen.datocms.com/channels/35fb5cc1-54a3-4b87-9b7e-065ca7545bcf"}'
-  recorded_at: Tue, 14 Feb 2023 09:13:41 GMT
+      string: '{"url":"https://graphql-listen.datocms.com/channels/0bc3eb0a-7168-4d6a-a5b8-425cde080288"}'
+  recorded_at: Fri, 18 Aug 2023 08:57:41 GMT
 recorded_with: VCR 6.1.0

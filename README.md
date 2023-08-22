@@ -173,7 +173,7 @@ Dato::Client.new.items.destroy(item_id: '123')
 Dato Rails also supports file uploads. 
 These can be created either from a local file or from a url. 
 Basically all file types are supported, as long as they are valid in the CMS.
-Be aware that job result retrieval is not synchronous, so you may need to 
+Be aware that dato jobs are not synchronous, so you may need to 
 implement some kind of polling to check if the upload is finished.
 The create method returns a job id, which can be used to retrieve the upload result.
 
@@ -301,7 +301,8 @@ You can now clone the dato-rails project
 
 
 You then need to set a `DATO_API_TOKEN=abcd123x` in the `.env` file on the root of your project
-to consume data from your project.
+to consume data from your project. For testing purposes, set `TEST_MODEL_TYPE_ID=1234` in the `.env` file
+with the id of the author model type in your project.
 
 Then, run `bundle exec rspec` to run the tests. 
 
