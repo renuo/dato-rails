@@ -5,7 +5,7 @@ http_interactions:
     uri: https://site-api.datocms.com/items
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"item","attributes":{"title":"Hello world"},"relationships":{"item_type":{"data":{"type":"item_type","id":"4404"}}}}}'
+      string: '{"data":{"type":"item","attributes":{"name":"Hello world"},"relationships":{"item_type":{"data":{"type":"item_type","id":"1318857"}}}}}'
     headers:
       Accept:
       - application/json
@@ -25,7 +25,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 21 Apr 2023 10:56:49 GMT
+      - Fri, 18 Aug 2023 08:57:41 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,30 +33,32 @@ http_interactions:
       Connection:
       - close
       Cf-Ray:
-      - 7bb51a421d6c23c7-ZRH
+      - 7f88f360de4cceab-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
       - max-age=0, private, must-revalidate
       Etag:
-      - W/"75e7b4985607db883221bd801b250636"
+      - W/"9e6f6a347dec9194ab0f32edaa06c379"
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
       Vary:
       - Accept,Accept-Encoding
       Via:
       - 1.1 vegur
-      Cf-Cache-Status:
-      - DYNAMIC
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
       - authorization, content-type, x-environment, x-organization, x-site-domain,
-        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
       Access-Control-Allow-Methods:
       - GET, POST, PUT, OPTIONS, DELETE
       Access-Control-Expose-Headers:
-      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
       Access-Control-Max-Age:
       - '1728000'
       Referrer-Policy:
@@ -74,27 +76,27 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Queue-Time:
-      - 1ms
+      - 0ms
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
       - '59'
       X-Request-Id:
-      - 802756ee-7d1c-4ac8-a853-9c77e8f4f702
+      - 1bd6cd82-959e-4a54-8043-450c2978b5c1
       X-Runtime:
-      - '0.087948'
+      - '0.107965'
       X-Xss-Protection:
       - 1; mode=block
       Server:
       - cloudflare
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"106421265","type":"item","attributes":{"title":"Hello
-        world","updated_at":"2023-04-21T11:56:49.029+01:00","created_at":"2023-04-21T11:56:49.025+01:00","position":6},"relationships":{"item_type":{"data":{"id":"4404","type":"item_type"}},"creator":{"data":{"id":"136841","type":"access_token"}}},"meta":{"created_at":"2023-04-21T11:56:49.025+01:00","updated_at":"2023-04-21T11:56:49.029+01:00","published_at":"2023-04-21T11:56:49.047+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-04-21T11:56:49.047+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"197716210","stage":null}},"included":[{"id":"4404","type":"item_type","attributes":{"name":"category","singleton":false,"sortable":true,"api_key":"category","ordering_direction":null,"ordering_meta":null,"tree":false,"modular_block":false,"draft_mode_active":false,"all_locales_required":true,"collection_appeareance":"table","collection_appearance":"table","has_singleton_item":false,"hint":null,"inverse_relationships_enabled":false},"relationships":{"fields":{"data":[{"id":"21611","type":"field"}]},"fieldsets":{"data":[]},"singleton_item":{"data":null},"ordering_field":{"data":null},"title_field":{"data":{"id":"21611","type":"field"}},"image_preview_field":{"data":null},"excerpt_field":{"data":null},"workflow":{"data":null}},"meta":{"has_singleton_item":false}}]}'
-  recorded_at: Fri, 21 Apr 2023 10:56:49 GMT
+      string: '{"data":{"id":"163791323","type":"item","attributes":{"name":"Hello
+        world","picture":null,"updated_at":"2023-08-18T09:57:41.339+01:00","created_at":"2023-08-18T09:57:41.333+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:57:41.333+01:00","updated_at":"2023-08-18T09:57:41.339+01:00","published_at":"2023-08-18T09:57:41.362+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:57:41.362+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319201313","stage":null}},"included":[{"id":"1318857","type":"item_type","attributes":{"name":"Author","singleton":false,"sortable":false,"api_key":"author","ordering_direction":null,"ordering_meta":null,"tree":false,"modular_block":false,"draft_mode_active":false,"all_locales_required":true,"collection_appeareance":"table","collection_appearance":"table","has_singleton_item":false,"hint":null,"inverse_relationships_enabled":false},"relationships":{"fields":{"data":[{"id":"6501678","type":"field"},{"id":"6501679","type":"field"}]},"fieldsets":{"data":[]},"singleton_item":{"data":null},"ordering_field":{"data":null},"title_field":{"data":{"id":"6501678","type":"field"}},"image_preview_field":{"data":null},"excerpt_field":{"data":null},"workflow":{"data":null}},"meta":{"has_singleton_item":false}}]}'
+  recorded_at: Fri, 18 Aug 2023 08:57:41 GMT
 - request:
     method: get
-    uri: https://site-api.datocms.com/items?filter%5Btype%5D=4404
+    uri: https://site-api.datocms.com/items?filter%5Btype%5D=1318857
     body:
       encoding: UTF-8
       string: ''
@@ -115,7 +117,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 21 Apr 2023 10:56:49 GMT
+      - Fri, 18 Aug 2023 08:57:41 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -123,30 +125,32 @@ http_interactions:
       Connection:
       - close
       Cf-Ray:
-      - 7bb51a43dbdf01f8-ZRH
+      - 7f88f362ce88ce93-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
       - max-age=0, private, must-revalidate
       Etag:
-      - W/"858a9ebcef5df8b3b1b6fe9d6b2ac521"
+      - W/"ead330aff439cd8831e54a86b516c2e2"
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
       Vary:
       - Accept,Accept-Encoding
       Via:
       - 1.1 vegur
-      Cf-Cache-Status:
-      - DYNAMIC
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
       - authorization, content-type, x-environment, x-organization, x-site-domain,
-        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
       Access-Control-Allow-Methods:
       - GET, POST, PUT, OPTIONS, DELETE
       Access-Control-Expose-Headers:
-      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
       Access-Control-Max-Age:
       - '1728000'
       Referrer-Policy:
@@ -166,29 +170,39 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Queue-Time:
-      - 3ms
+      - 0ms
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
       - '58'
       X-Request-Id:
-      - bbf67479-8926-444e-8653-b58d2a2070be
+      - 9638292f-29ea-4783-8925-14efa63665b2
       X-Runtime:
-      - '0.027738'
+      - '0.047967'
       X-Xss-Protection:
       - 1; mode=block
       Server:
       - cloudflare
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"176487","type":"item","attributes":{"title":"a","updated_at":"2022-03-24T15:13:46.299+00:00","created_at":"2022-03-24T15:13:46.291+00:00","position":1},"relationships":{"item_type":{"data":{"id":"4404","type":"item_type"}},"creator":{"data":{"id":"34667","type":"account"}}},"meta":{"created_at":"2022-03-24T15:13:46.291+00:00","updated_at":"2022-03-24T15:13:46.299+00:00","published_at":"2022-03-24T15:13:46.319+00:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2022-03-24T15:13:46.319+00:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"464423","stage":null}},{"id":"176488","type":"item","attributes":{"title":"b","updated_at":"2022-03-24T15:13:51.557+00:00","created_at":"2022-03-24T15:13:51.551+00:00","position":2},"relationships":{"item_type":{"data":{"id":"4404","type":"item_type"}},"creator":{"data":{"id":"34667","type":"account"}}},"meta":{"created_at":"2022-03-24T15:13:51.551+00:00","updated_at":"2022-03-24T15:13:51.557+00:00","published_at":"2022-03-24T15:13:51.574+00:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2022-03-24T15:13:51.574+00:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"464425","stage":null}},{"id":"176489","type":"item","attributes":{"title":"c","updated_at":"2022-03-24T15:13:55.971+00:00","created_at":"2022-03-24T15:13:55.966+00:00","position":3},"relationships":{"item_type":{"data":{"id":"4404","type":"item_type"}},"creator":{"data":{"id":"34667","type":"account"}}},"meta":{"created_at":"2022-03-24T15:13:55.966+00:00","updated_at":"2022-03-24T15:13:55.971+00:00","published_at":"2022-03-24T15:13:55.984+00:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2022-03-24T15:13:55.984+00:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"464426","stage":null}},{"id":"106421263","type":"item","attributes":{"title":"Hello
-        world 2","updated_at":"2023-04-21T11:55:52.047+01:00","created_at":"2023-04-21T11:55:51.177+01:00","position":4},"relationships":{"item_type":{"data":{"id":"4404","type":"item_type"}},"creator":{"data":{"id":"136841","type":"access_token"}}},"meta":{"created_at":"2023-04-21T11:55:51.177+01:00","updated_at":"2023-04-21T11:55:52.047+01:00","published_at":"2023-04-21T11:55:52.071+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-04-21T11:55:51.200+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"197716183","stage":null}},{"id":"106421264","type":"item","attributes":{"title":"Hello
-        world 2","updated_at":"2023-04-21T11:56:24.399+01:00","created_at":"2023-04-21T11:56:23.614+01:00","position":5},"relationships":{"item_type":{"data":{"id":"4404","type":"item_type"}},"creator":{"data":{"id":"136841","type":"access_token"}}},"meta":{"created_at":"2023-04-21T11:56:23.614+01:00","updated_at":"2023-04-21T11:56:24.399+01:00","published_at":"2023-04-21T11:56:24.431+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-04-21T11:56:23.656+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"197716191","stage":null}},{"id":"106421265","type":"item","attributes":{"title":"Hello
-        world","updated_at":"2023-04-21T11:56:49.029+01:00","created_at":"2023-04-21T11:56:49.025+01:00","position":6},"relationships":{"item_type":{"data":{"id":"4404","type":"item_type"}},"creator":{"data":{"id":"136841","type":"access_token"}}},"meta":{"created_at":"2023-04-21T11:56:49.025+01:00","updated_at":"2023-04-21T11:56:49.029+01:00","published_at":"2023-04-21T11:56:49.047+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-04-21T11:56:49.047+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"197716210","stage":null}}],"meta":{"total_count":6}}'
-  recorded_at: Fri, 21 Apr 2023 10:56:49 GMT
+      string: '{"data":[{"id":"163791323","type":"item","attributes":{"name":"Hello
+        world","picture":null,"updated_at":"2023-08-18T09:57:41.339+01:00","created_at":"2023-08-18T09:57:41.333+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:57:41.333+01:00","updated_at":"2023-08-18T09:57:41.339+01:00","published_at":"2023-08-18T09:57:41.362+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:57:41.362+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319201313","stage":null}},{"id":"163791294","type":"item","attributes":{"name":"Hello
+        world","picture":{"alt":null,"title":null,"custom_data":{},"focal_point":null,"upload_id":"55075848"},"updated_at":"2023-08-18T09:57:12.605+01:00","created_at":"2023-08-18T09:57:12.599+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:57:12.599+01:00","updated_at":"2023-08-18T09:57:12.605+01:00","published_at":"2023-08-18T09:57:12.634+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:57:12.634+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319201223","stage":null}},{"id":"163791293","type":"item","attributes":{"name":"Hello
+        world","picture":null,"updated_at":"2023-08-18T09:57:09.190+01:00","created_at":"2023-08-18T09:57:09.183+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:57:09.183+01:00","updated_at":"2023-08-18T09:57:09.190+01:00","published_at":"2023-08-18T09:57:09.227+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:57:09.227+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319201221","stage":null}},{"id":"163791292","type":"item","attributes":{"name":"Hello
+        world","picture":{"alt":null,"title":null,"custom_data":{},"focal_point":null,"upload_id":"55075844"},"updated_at":"2023-08-18T09:57:00.255+01:00","created_at":"2023-08-18T09:57:00.251+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:57:00.251+01:00","updated_at":"2023-08-18T09:57:00.255+01:00","published_at":"2023-08-18T09:57:00.282+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:57:00.282+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319201216","stage":null}},{"id":"163791265","type":"item","attributes":{"name":"Hello
+        world","picture":null,"updated_at":"2023-08-18T09:56:51.149+01:00","created_at":"2023-08-18T09:56:51.143+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:56:51.143+01:00","updated_at":"2023-08-18T09:56:51.149+01:00","published_at":"2023-08-18T09:56:51.173+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:56:51.173+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319201177","stage":null}},{"id":"163790996","type":"item","attributes":{"name":"Hello
+        world 2112121212121","picture":null,"updated_at":"2023-08-18T09:56:24.867+01:00","created_at":"2023-08-18T09:56:24.860+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:56:24.860+01:00","updated_at":"2023-08-18T09:56:24.867+01:00","published_at":"2023-08-18T09:56:24.929+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:56:24.929+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319200903","stage":null}},{"id":"163790961","type":"item","attributes":{"name":"Hello
+        world","picture":null,"updated_at":"2023-08-18T09:56:07.725+01:00","created_at":"2023-08-18T09:56:07.718+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:56:07.718+01:00","updated_at":"2023-08-18T09:56:07.725+01:00","published_at":"2023-08-18T09:56:07.755+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:56:07.755+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319200856","stage":null}},{"id":"163790931","type":"item","attributes":{"name":"Hello
+        world","picture":null,"updated_at":"2023-08-18T09:56:02.928+01:00","created_at":"2023-08-18T09:56:02.921+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:56:02.921+01:00","updated_at":"2023-08-18T09:56:02.928+01:00","published_at":"2023-08-18T09:56:02.973+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:56:02.973+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319200824","stage":null}},{"id":"163790832","type":"item","attributes":{"name":"Hello
+        world","picture":null,"updated_at":"2023-08-18T09:55:49.270+01:00","created_at":"2023-08-18T09:55:49.266+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:55:49.266+01:00","updated_at":"2023-08-18T09:55:49.270+01:00","published_at":"2023-08-18T09:55:49.286+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:55:49.286+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319200720","stage":null}},{"id":"163790806","type":"item","attributes":{"name":"Hello
+        world","picture":null,"updated_at":"2023-08-18T09:55:44.309+01:00","created_at":"2023-08-18T09:55:44.305+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:55:44.305+01:00","updated_at":"2023-08-18T09:55:44.309+01:00","published_at":"2023-08-18T09:55:44.325+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:55:44.325+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319200693","stage":null}},{"id":"163789733","type":"item","attributes":{"name":"Hello
+        world","picture":{"alt":null,"title":null,"custom_data":{},"focal_point":null,"upload_id":"55075722"},"updated_at":"2023-08-18T09:36:46.188+01:00","created_at":"2023-08-18T09:36:46.183+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:36:46.183+01:00","updated_at":"2023-08-18T09:36:46.188+01:00","published_at":"2023-08-18T09:36:46.216+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:36:46.216+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319199118","stage":null}},{"id":"163789714","type":"item","attributes":{"name":"Hello
+        world","picture":{"alt":null,"title":null,"custom_data":{},"focal_point":null,"upload_id":"55075714"},"updated_at":"2023-08-18T09:34:24.808+01:00","created_at":"2023-08-18T09:34:24.802+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:34:24.802+01:00","updated_at":"2023-08-18T09:34:24.808+01:00","published_at":"2023-08-18T09:34:24.838+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:34:24.839+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319199021","stage":null}},{"id":"67304437","type":"item","attributes":{"name":"Alessandro
+        Rodi","picture":{"alt":"Alessandro Rodi","title":"Alessandro Rodi","custom_data":{"who":"me"},"focal_point":null,"upload_id":"28081958"},"updated_at":"2021-10-22T14:51:53.863+01:00","created_at":"2021-10-22T14:51:53.860+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"54251","type":"account"}}},"meta":{"created_at":"2021-10-22T14:51:53.860+01:00","updated_at":"2021-10-22T14:51:53.863+01:00","published_at":"2021-10-22T14:51:53.878+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2021-10-22T14:51:53.878+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"145715972","stage":null}}],"meta":{"total_count":13}}'
+  recorded_at: Fri, 18 Aug 2023 08:57:41 GMT
 - request:
     method: get
-    uri: https://site-api.datocms.com/items/106421265
+    uri: https://site-api.datocms.com/items/163791323
     body:
       encoding: UTF-8
       string: ''
@@ -209,7 +223,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 21 Apr 2023 10:56:49 GMT
+      - Fri, 18 Aug 2023 08:57:41 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -217,30 +231,32 @@ http_interactions:
       Connection:
       - close
       Cf-Ray:
-      - 7bb51a45b8b823df-ZRH
+      - 7f88f3645b873b64-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
       - max-age=0, private, must-revalidate
       Etag:
-      - W/"34b88bb9c2e6c14f58e4e9d6409bb9c1"
+      - W/"90e3b31941afec152ecfe6e343def5cf"
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
       Vary:
       - Accept,Accept-Encoding
       Via:
       - 1.1 vegur
-      Cf-Cache-Status:
-      - DYNAMIC
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
       - authorization, content-type, x-environment, x-organization, x-site-domain,
-        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
       Access-Control-Allow-Methods:
       - GET, POST, PUT, OPTIONS, DELETE
       Access-Control-Expose-Headers:
-      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
       Access-Control-Max-Age:
       - '1728000'
       Referrer-Policy:
@@ -264,24 +280,24 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '57'
       X-Request-Id:
-      - 19ada6f8-3eb2-4577-9839-972cc583f204
+      - 7052b030-5cb1-4b04-9bcb-6f6458e1da45
       X-Runtime:
-      - '0.025625'
+      - '0.016449'
       X-Xss-Protection:
       - 1; mode=block
       Server:
       - cloudflare
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"106421265","type":"item","attributes":{"title":"Hello
-        world","updated_at":"2023-04-21T11:56:49.029+01:00","created_at":"2023-04-21T11:56:49.025+01:00","position":6},"relationships":{"item_type":{"data":{"id":"4404","type":"item_type"}},"creator":{"data":{"id":"136841","type":"access_token"}}},"meta":{"created_at":"2023-04-21T11:56:49.025+01:00","updated_at":"2023-04-21T11:56:49.029+01:00","published_at":"2023-04-21T11:56:49.047+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-04-21T11:56:49.047+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"197716210","stage":null}}}'
-  recorded_at: Fri, 21 Apr 2023 10:56:49 GMT
+      string: '{"data":{"id":"163791323","type":"item","attributes":{"name":"Hello
+        world","picture":null,"updated_at":"2023-08-18T09:57:41.339+01:00","created_at":"2023-08-18T09:57:41.333+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:57:41.333+01:00","updated_at":"2023-08-18T09:57:41.339+01:00","published_at":"2023-08-18T09:57:41.362+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:57:41.362+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319201313","stage":null}}}'
+  recorded_at: Fri, 18 Aug 2023 08:57:41 GMT
 - request:
     method: put
-    uri: https://site-api.datocms.com/items/106421265
+    uri: https://site-api.datocms.com/items/163791323
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"item","attributes":{"title":"Hello world 2"},"id":"106421265"}}'
+      string: '{"data":{"type":"item","attributes":{"name":"Hello world 2"},"id":"163791323"}}'
     headers:
       Accept:
       - application/json
@@ -301,7 +317,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 21 Apr 2023 10:56:50 GMT
+      - Fri, 18 Aug 2023 08:57:42 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -309,30 +325,303 @@ http_interactions:
       Connection:
       - close
       Cf-Ray:
-      - 7bb51a4728a30e02-MXP
+      - 7f88f3658d2ece9f-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
       - max-age=0, private, must-revalidate
       Etag:
-      - W/"06f72afa177adf03504f6b97443e992f"
+      - W/"780d61b89c65ad18a1e36afdc9ffa9d6"
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
       Vary:
       - Accept,Accept-Encoding
       Via:
       - 1.1 vegur
-      Cf-Cache-Status:
-      - DYNAMIC
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
       - authorization, content-type, x-environment, x-organization, x-site-domain,
-        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
       Access-Control-Allow-Methods:
       - GET, POST, PUT, OPTIONS, DELETE
       Access-Control-Expose-Headers:
-      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
+      Access-Control-Max-Age:
+      - '1728000'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Api-Version:
+      - '3'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Environment:
+      - main
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Queue-Time:
+      - 1ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '59'
+      X-Request-Id:
+      - 7b0d31e3-1862-47d5-98d3-a9d3951716f6
+      X-Runtime:
+      - '0.176505'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"163791323","type":"item","attributes":{"name":"Hello
+        world 2","picture":null,"updated_at":"2023-08-18T09:57:42.087+01:00","created_at":"2023-08-18T09:57:41.333+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:57:41.333+01:00","updated_at":"2023-08-18T09:57:42.087+01:00","published_at":"2023-08-18T09:57:42.110+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:57:41.362+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319201314","stage":null}},"included":[{"id":"1318857","type":"item_type","attributes":{"name":"Author","singleton":false,"sortable":false,"api_key":"author","ordering_direction":null,"ordering_meta":null,"tree":false,"modular_block":false,"draft_mode_active":false,"all_locales_required":true,"collection_appeareance":"table","collection_appearance":"table","has_singleton_item":false,"hint":null,"inverse_relationships_enabled":false},"relationships":{"fields":{"data":[{"id":"6501678","type":"field"},{"id":"6501679","type":"field"}]},"fieldsets":{"data":[]},"singleton_item":{"data":null},"ordering_field":{"data":null},"title_field":{"data":{"id":"6501678","type":"field"}},"image_preview_field":{"data":null},"excerpt_field":{"data":null},"workflow":{"data":null}},"meta":{"has_singleton_item":false}}]}'
+  recorded_at: Fri, 18 Aug 2023 08:57:42 GMT
+- request:
+    method: get
+    uri: https://site-api.datocms.com/items/163791323
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Api-Version:
+      - '3'
+      Connection:
+      - close
+      Host:
+      - site-api.datocms.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 18 Aug 2023 08:57:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 7f88f367c8cf3b5e-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Etag:
+      - W/"5c4edcfb918c105aaf70ee27f5043b9b"
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Vary:
+      - Accept,Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-environment, x-organization, x-site-domain,
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
+      Access-Control-Max-Age:
+      - '1728000'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Api-Version:
+      - '3'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Environment:
+      - main
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Queue-Time:
+      - 0ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '58'
+      X-Request-Id:
+      - 1435e6fe-6bf1-4e4b-a713-4376897e3092
+      X-Runtime:
+      - '0.038790'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"163791323","type":"item","attributes":{"name":"Hello
+        world 2","picture":null,"updated_at":"2023-08-18T09:57:42.087+01:00","created_at":"2023-08-18T09:57:41.333+01:00"},"relationships":{"item_type":{"data":{"id":"1318857","type":"item_type"}},"creator":{"data":{"id":"224335","type":"access_token"}}},"meta":{"created_at":"2023-08-18T09:57:41.333+01:00","updated_at":"2023-08-18T09:57:42.087+01:00","published_at":"2023-08-18T09:57:42.110+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-08-18T09:57:41.362+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"319201314","stage":null}}}'
+  recorded_at: Fri, 18 Aug 2023 08:57:42 GMT
+- request:
+    method: delete
+    uri: https://site-api.datocms.com/items/163791323
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Api-Version:
+      - '3'
+      Connection:
+      - close
+      Host:
+      - site-api.datocms.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Date:
+      - Fri, 18 Aug 2023 08:57:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 7f88f369086aceab-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Vary:
+      - Accept,Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-environment, x-organization, x-site-domain,
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
+      Access-Control-Max-Age:
+      - '1728000'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Api-Version:
+      - '3'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Environment:
+      - main
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Queue-Time:
+      - 2ms
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '57'
+      X-Request-Id:
+      - 1dd6f735-57ab-4f4f-a1fa-15731c5ad04f
+      X-Runtime:
+      - '0.014946'
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"5309e1cfbd954621d245e55c","type":"job"}}'
+  recorded_at: Fri, 18 Aug 2023 08:57:42 GMT
+- request:
+    method: get
+    uri: https://site-api.datocms.com/items/163791323
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Api-Version:
+      - '3'
+      Connection:
+      - close
+      Host:
+      - site-api.datocms.com
+      User-Agent:
+      - http.rb/5.1.1
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Fri, 18 Aug 2023 08:57:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cf-Ray:
+      - 7f88f36a28efce93-GVA
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Vary:
+      - Accept,Accept-Encoding
+      Via:
+      - 1.1 vegur
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - authorization, content-type, x-environment, x-organization, x-site-domain,
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, OPTIONS, DELETE
+      Access-Control-Expose-Headers:
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
       Access-Control-Max-Age:
       - '1728000'
       Referrer-Policy:
@@ -356,21 +645,20 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '56'
       X-Request-Id:
-      - f5e957ab-b9af-4d92-a27c-93ba30e7c5af
+      - c3dfde5f-f31d-4591-ae99-7f0b4ea9be1f
       X-Runtime:
-      - '0.235040'
+      - '0.011569'
       X-Xss-Protection:
       - 1; mode=block
       Server:
       - cloudflare
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"106421265","type":"item","attributes":{"title":"Hello
-        world 2","updated_at":"2023-04-21T11:56:49.841+01:00","created_at":"2023-04-21T11:56:49.025+01:00","position":6},"relationships":{"item_type":{"data":{"id":"4404","type":"item_type"}},"creator":{"data":{"id":"136841","type":"access_token"}}},"meta":{"created_at":"2023-04-21T11:56:49.025+01:00","updated_at":"2023-04-21T11:56:49.841+01:00","published_at":"2023-04-21T11:56:49.866+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-04-21T11:56:49.047+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"197716211","stage":null}},"included":[{"id":"4404","type":"item_type","attributes":{"name":"category","singleton":false,"sortable":true,"api_key":"category","ordering_direction":null,"ordering_meta":null,"tree":false,"modular_block":false,"draft_mode_active":false,"all_locales_required":true,"collection_appeareance":"table","collection_appearance":"table","has_singleton_item":false,"hint":null,"inverse_relationships_enabled":false},"relationships":{"fields":{"data":[{"id":"21611","type":"field"}]},"fieldsets":{"data":[]},"singleton_item":{"data":null},"ordering_field":{"data":null},"title_field":{"data":{"id":"21611","type":"field"}},"image_preview_field":{"data":null},"excerpt_field":{"data":null},"workflow":{"data":null}},"meta":{"has_singleton_item":false}}]}'
-  recorded_at: Fri, 21 Apr 2023 10:56:50 GMT
+      string: '{"data":[{"id":"302048","type":"api_error","attributes":{"code":"NOT_FOUND","details":{}}}]}'
+  recorded_at: Fri, 18 Aug 2023 08:57:42 GMT
 - request:
     method: get
-    uri: https://site-api.datocms.com/items/106421265
+    uri: https://site-api.datocms.com/items?filter%5Btype%5D=123
     body:
       encoding: UTF-8
       string: ''
@@ -387,11 +675,11 @@ http_interactions:
       - http.rb/5.1.1
   response:
     status:
-      code: 200
-      message: OK
+      code: 422
+      message: Unprocessable Entity
     headers:
       Date:
-      - Fri, 21 Apr 2023 10:56:50 GMT
+      - Fri, 18 Aug 2023 09:00:40 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -399,97 +687,9 @@ http_interactions:
       Connection:
       - close
       Cf-Ray:
-      - 7bb51a49cee523df-ZRH
-      Access-Control-Allow-Origin:
-      - "*"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Etag:
-      - W/"3061f39595cd275a5fd0ae6a44ddd339"
-      Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains; preload
-      Vary:
-      - Accept,Accept-Encoding
-      Via:
-      - 1.1 vegur
+      - 7f88f7bf7b34ceab-GVA
       Cf-Cache-Status:
       - DYNAMIC
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Headers:
-      - authorization, content-type, x-environment, x-organization, x-site-domain,
-        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid
-      Access-Control-Allow-Methods:
-      - GET, POST, PUT, OPTIONS, DELETE
-      Access-Control-Expose-Headers:
-      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
-      Access-Control-Max-Age:
-      - '1728000'
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      X-Api-Version:
-      - '3'
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Environment:
-      - main
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Queue-Time:
-      - 4ms
-      X-Ratelimit-Limit:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '55'
-      X-Request-Id:
-      - c07e37a4-0d80-40c2-86b6-51022a1973ce
-      X-Runtime:
-      - '0.020326'
-      X-Xss-Protection:
-      - 1; mode=block
-      Server:
-      - cloudflare
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"106421265","type":"item","attributes":{"title":"Hello
-        world 2","updated_at":"2023-04-21T11:56:49.841+01:00","created_at":"2023-04-21T11:56:49.025+01:00","position":6},"relationships":{"item_type":{"data":{"id":"4404","type":"item_type"}},"creator":{"data":{"id":"136841","type":"access_token"}}},"meta":{"created_at":"2023-04-21T11:56:49.025+01:00","updated_at":"2023-04-21T11:56:49.841+01:00","published_at":"2023-04-21T11:56:49.866+01:00","publication_scheduled_at":null,"unpublishing_scheduled_at":null,"first_published_at":"2023-04-21T11:56:49.047+01:00","is_valid":true,"is_current_version_valid":true,"is_published_version_valid":true,"status":"published","current_version":"197716211","stage":null}}}'
-  recorded_at: Fri, 21 Apr 2023 10:56:50 GMT
-- request:
-    method: delete
-    uri: https://site-api.datocms.com/items/106421265
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      X-Api-Version:
-      - '3'
-      Connection:
-      - close
-      Host:
-      - site-api.datocms.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 202
-      message: Accepted
-    headers:
-      Date:
-      - Fri, 21 Apr 2023 10:56:50 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - close
-      Cf-Ray:
-      - 7bb51a4b386f0f52-MXP
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
@@ -500,104 +700,17 @@ http_interactions:
       - Accept,Accept-Encoding
       Via:
       - 1.1 vegur
-      Cf-Cache-Status:
-      - DYNAMIC
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
       - authorization, content-type, x-environment, x-organization, x-site-domain,
-        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid
+        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid,
+        x-visual-editing, x-base-editing-url
       Access-Control-Allow-Methods:
       - GET, POST, PUT, OPTIONS, DELETE
       Access-Control-Expose-Headers:
-      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
-      Access-Control-Max-Age:
-      - '1728000'
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      X-Api-Version:
-      - '3'
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Environment:
-      - main
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Queue-Time:
-      - 4ms
-      X-Ratelimit-Limit:
-      - '60'
-      X-Ratelimit-Remaining:
-      - '54'
-      X-Request-Id:
-      - f415baa2-1d9a-44fc-8d1b-312d7e7013cf
-      X-Runtime:
-      - '0.015436'
-      X-Xss-Protection:
-      - 1; mode=block
-      Server:
-      - cloudflare
-    body:
-      encoding: UTF-8
-      string: '{"data":{"id":"78f0d2948ae8a93ea5b82f4f","type":"job"}}'
-  recorded_at: Fri, 21 Apr 2023 10:56:50 GMT
-- request:
-    method: get
-    uri: https://site-api.datocms.com/items/106421265
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      X-Api-Version:
-      - '3'
-      Connection:
-      - close
-      Host:
-      - site-api.datocms.com
-      User-Agent:
-      - http.rb/5.1.1
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Date:
-      - Fri, 21 Apr 2023 10:56:50 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - close
-      Cf-Ray:
-      - 7bb51a4c88bad600-MXP
-      Access-Control-Allow-Origin:
-      - "*"
-      Cache-Control:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains; preload
-      Vary:
-      - Accept,Accept-Encoding
-      Via:
-      - 1.1 vegur
-      Cf-Cache-Status:
-      - DYNAMIC
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Headers:
-      - authorization, content-type, x-environment, x-organization, x-site-domain,
-        x-api-version, user-agent, x-session-id, x-include-drafts, x-exclude-invalid
-      Access-Control-Allow-Methods:
-      - GET, POST, PUT, OPTIONS, DELETE
-      Access-Control-Expose-Headers:
-      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset
+      - x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, x-complexity,
+        x-max-complexity
       Access-Control-Max-Age:
       - '1728000'
       Referrer-Policy:
@@ -619,17 +732,17 @@ http_interactions:
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
-      - '53'
+      - '59'
       X-Request-Id:
-      - ace1d58d-4586-498e-a14e-106903a42054
+      - 3d4e1a7d-40d5-4ade-b5e1-1fedef5c0a09
       X-Runtime:
-      - '0.010219'
+      - '0.011349'
       X-Xss-Protection:
       - 1; mode=block
       Server:
       - cloudflare
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"302048","type":"api_error","attributes":{"code":"NOT_FOUND","details":{}}}]}'
-  recorded_at: Fri, 21 Apr 2023 10:56:50 GMT
+      string: '{"data":[{"id":"527951","type":"api_error","attributes":{"code":"ITEM_TYPE_NOT_FOUND","details":{}}}]}'
+  recorded_at: Fri, 18 Aug 2023 09:00:40 GMT
 recorded_with: VCR 6.1.0

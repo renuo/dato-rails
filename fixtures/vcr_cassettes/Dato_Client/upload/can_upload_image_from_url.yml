@@ -21,7 +21,7 @@ http_interactions:
       message: Found
     headers:
       Date:
-      - Wed, 16 Aug 2023 14:55:36 GMT
+      - Fri, 18 Aug 2023 08:57:43 GMT
       Content-Length:
       - '0'
       Connection:
@@ -35,7 +35,7 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=cE6cihfyM%2B7NGfSSBxT9o03iFOY61Rgoj5yIlwbphN5%2B2m7aGrGYcUxzYGyv1k84YxHZ2JboEMcqX1aaSC8anYIbI8ZNyItiivf4h1yVKEOF0p%2BYV830nk5qRYnHm7g%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=iNCCEbOkgXaVAQeMyKn7FgrXpzx6e4PxBbrJjEbHcZrPJ%2BNR%2BtlnAY1Crv3RC5VJx%2Fm6JqETMjSt7Lq0dmx%2B77mjbmqx5ESZlkR%2BwG7kSLTn4UsPtNyuHUIHqJ6SxZ8%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
@@ -45,13 +45,13 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7f7a84ee68a83b5e-GVA
+      - 7f88f36b8db03b64-GVA
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Wed, 16 Aug 2023 14:55:36 GMT
+  recorded_at: Fri, 18 Aug 2023 08:57:42 GMT
 - request:
     method: post
     uri: https://site-api.datocms.com/upload-requests
@@ -77,7 +77,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 16 Aug 2023 14:55:37 GMT
+      - Fri, 18 Aug 2023 08:57:43 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -85,7 +85,7 @@ http_interactions:
       Connection:
       - close
       Cf-Ray:
-      - 7f7a84ef4fb2ce9f-GVA
+      - 7f88f36c5de93b64-GVA
       Cf-Cache-Status:
       - DYNAMIC
       Access-Control-Allow-Origin:
@@ -93,7 +93,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Etag:
-      - W/"1d4b3248fc5be828ec02ecae8dca0e94"
+      - W/"84799ed024327a088896a28bdf5c00bc"
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
       Vary:
@@ -128,26 +128,26 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Queue-Time:
-      - "-1ms"
+      - 0ms
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
-      - '59'
+      - '55'
       X-Request-Id:
-      - 04a998b3-edee-45f0-85a3-f8903ad91e3b
+      - a1e2fe5c-0d43-43bb-81ba-48846eaf0327
       X-Runtime:
-      - '0.016210'
+      - '0.015050'
       X-Xss-Protection:
       - 1; mode=block
       Server:
       - cloudflare
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"/93363/1692197736-picsum.png","type":"upload_request","attributes":{"url":"https://datosrl-images.s3.eu-west-1.amazonaws.com/93363/1692197736-picsum.png?x-amz-acl=public-read&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2WEP2FZ4IZ5S22OH%2F20230816%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230816T145536Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=7337cbc97f2cdd71e9f133ec74245332c59a79f37cebe02376759d31b17d5f43"}}}'
-  recorded_at: Wed, 16 Aug 2023 14:55:37 GMT
+      string: '{"data":{"id":"/105263/1692349063-picsum.png","type":"upload_request","attributes":{"url":"https://datosrl-images.s3.eu-west-1.amazonaws.com/105263/1692349063-picsum.png?x-amz-acl=public-read&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2WEP2FZ4IZ5S22OH%2F20230818%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230818T085743Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=a1dd9a8f5de7f02131de7e0f291c4e72fa8071c2c8ede7beb1db94a2ff59a2c0"}}}'
+  recorded_at: Fri, 18 Aug 2023 08:57:43 GMT
 - request:
     method: put
-    uri: https://datosrl-images.s3.eu-west-1.amazonaws.com/93363/1692197736-picsum.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2WEP2FZ4IZ5S22OH/20230816/eu-west-1/s3/aws4_request&X-Amz-Date=20230816T145536Z&X-Amz-Expires=900&X-Amz-Signature=7337cbc97f2cdd71e9f133ec74245332c59a79f37cebe02376759d31b17d5f43&X-Amz-SignedHeaders=host&x-amz-acl=public-read
+    uri: https://datosrl-images.s3.eu-west-1.amazonaws.com/105263/1692349063-picsum.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2WEP2FZ4IZ5S22OH/20230818/eu-west-1/s3/aws4_request&X-Amz-Date=20230818T085743Z&X-Amz-Expires=900&X-Amz-Signature=a1dd9a8f5de7f02131de7e0f291c4e72fa8071c2c8ede7beb1db94a2ff59a2c0&X-Amz-SignedHeaders=host&x-amz-acl=public-read
     body:
       encoding: UTF-8
       string: ''
@@ -166,13 +166,13 @@ http_interactions:
       message: OK
     headers:
       X-Amz-Id-2:
-      - aXTi5HRMLA3+Gv9jcgMF38HUT/9WqjpseduXF4KnRkfuO1xe1UHv0jLgKMlxnJWO00l6ZNEXQgY=
+      - EP0DZ4cr4ECa7SsOnzJVfUl4wR2uTd38BRVBF5lusymnrghg734AX92Uuy7UDx+uU4Mi/jvD2fc=
       X-Amz-Request-Id:
-      - 8V4N5VJ7713P3FXJ
+      - ASHTVVYMPWGN5A6C
       Date:
-      - Wed, 16 Aug 2023 14:55:38 GMT
+      - Fri, 18 Aug 2023 08:57:44 GMT
       X-Amz-Version-Id:
-      - L79BnqhLwqMKVR_RHdAYEs4LWylJZHfk
+      - 78ID7ZCJ0s09heGK487_B8N4hWY_DcXZ
       X-Amz-Server-Side-Encryption:
       - AES256
       Etag:
@@ -186,13 +186,13 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: ''
-  recorded_at: Wed, 16 Aug 2023 14:55:37 GMT
+  recorded_at: Fri, 18 Aug 2023 08:57:43 GMT
 - request:
     method: post
     uri: https://site-api.datocms.com/uploads
     body:
       encoding: UTF-8
-      string: '{"data":{"type":"upload","attributes":{"path":"/93363/1692197736-picsum.png"}}}'
+      string: '{"data":{"type":"upload","attributes":{"path":"/105263/1692349063-picsum.png"}}}'
     headers:
       Content-Type:
       - application/vnd.api+json
@@ -212,7 +212,7 @@ http_interactions:
       message: Accepted
     headers:
       Date:
-      - Wed, 16 Aug 2023 14:55:37 GMT
+      - Fri, 18 Aug 2023 08:57:43 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -220,7 +220,7 @@ http_interactions:
       Connection:
       - close
       Cf-Ray:
-      - 7f7a84f23d553b64-GVA
+      - 7f88f36ebf933b58-GVA
       Cf-Cache-Status:
       - DYNAMIC
       Access-Control-Allow-Origin:
@@ -265,22 +265,22 @@ http_interactions:
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
-      - '58'
+      - '54'
       X-Request-Id:
-      - 7feab277-2b30-4689-98c6-2e171a8b6d3f
+      - ef82ab5c-79ab-436e-b5da-e89b665e6f66
       X-Runtime:
-      - '0.011060'
+      - '0.014561'
       X-Xss-Protection:
       - 1; mode=block
       Server:
       - cloudflare
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"7929e389e613bc6ae91322a5","type":"job"}}'
-  recorded_at: Wed, 16 Aug 2023 14:55:37 GMT
+      string: '{"data":{"id":"bbe064102bf8fa9ecb528a9c","type":"job"}}'
+  recorded_at: Fri, 18 Aug 2023 08:57:43 GMT
 - request:
     method: get
-    uri: https://site-api.datocms.com/job-results/7929e389e613bc6ae91322a5
+    uri: https://site-api.datocms.com/job-results/bbe064102bf8fa9ecb528a9c
     body:
       encoding: UTF-8
       string: ''
@@ -303,7 +303,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 16 Aug 2023 14:55:37 GMT
+      - Fri, 18 Aug 2023 08:57:43 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -311,7 +311,7 @@ http_interactions:
       Connection:
       - close
       Cf-Ray:
-      - 7f7a84f3db473b57-GVA
+      - 7f88f36ffbe53b5e-GVA
       Cf-Cache-Status:
       - DYNAMIC
       Access-Control-Allow-Origin:
@@ -319,7 +319,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Etag:
-      - W/"3302c162b6d12b685a2c3fe0f69907aa"
+      - W/"4f3ee1270556acc2bc8d09a051e1a449"
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains; preload
       Vary:
@@ -354,21 +354,21 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Queue-Time:
-      - 1ms
+      - "-1ms"
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
-      - '57'
+      - '53'
       X-Request-Id:
-      - 8b8a3ca6-8ccf-4bc8-8f9b-505c80400a49
+      - aa2bedd5-a310-452f-ba9f-fc8d6a5c58f5
       X-Runtime:
-      - '0.011933'
+      - '0.026296'
       X-Xss-Protection:
       - 1; mode=block
       Server:
       - cloudflare
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"7929e389e613bc6ae91322a5","type":"job_result","attributes":{"payload":{"data":{"id":"67210700","type":"upload","attributes":{"size":0,"width":null,"height":null,"path":"/93363/1692197736-picsum","format":null,"author":null,"notes":null,"copyright":null,"default_field_metadata":{"en":{"alt":null,"title":null,"custom_data":{},"focal_point":null},"de-CH":{"alt":null,"title":null,"custom_data":{},"focal_point":null}},"is_image":false,"created_at":"2023-08-16T14:55:37.592Z","updated_at":"2023-08-16T14:55:37.595Z","url":"https://www.datocms-assets.com/93363/1692197736-picsum","tags":[],"filename":"picsum","basename":"picsum","exif_info":{},"mime_type":"application/octet-stream","colors":[],"smart_tags":[],"duration":null,"frame_rate":null,"mux_playback_id":null,"blurhash":null,"thumbhash":null,"mux_mp4_highest_res":null,"md5":"d41d8cd98f00b204e9800998ecf8427e"},"relationships":{"creator":{"data":{"id":"197178","type":"access_token"}}}}},"status":201,"statusText":"Created"}}}'
-  recorded_at: Wed, 16 Aug 2023 14:55:37 GMT
+      string: '{"data":{"id":"bbe064102bf8fa9ecb528a9c","type":"job_result","attributes":{"payload":{"data":{"id":"55075852","type":"upload","attributes":{"size":0,"width":null,"height":null,"path":"/105263/1692349063-picsum","format":null,"author":null,"notes":null,"copyright":null,"default_field_metadata":{"en":{"alt":null,"title":null,"custom_data":{},"focal_point":null}},"is_image":false,"created_at":"2023-08-18T08:57:43.669Z","updated_at":"2023-08-18T08:57:43.672Z","url":"https://www.datocms-assets.com/105263/1692349063-picsum","tags":[],"filename":"picsum","basename":"picsum","exif_info":{},"mime_type":"application/octet-stream","colors":[],"smart_tags":[],"duration":null,"frame_rate":null,"mux_playback_id":null,"blurhash":null,"thumbhash":null,"mux_mp4_highest_res":null,"md5":"d41d8cd98f00b204e9800998ecf8427e"},"relationships":{"creator":{"data":{"id":"224335","type":"access_token"}}}}},"status":201,"statusText":"Created"}}}'
+  recorded_at: Fri, 18 Aug 2023 08:57:43 GMT
 recorded_with: VCR 6.1.0
