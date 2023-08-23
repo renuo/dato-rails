@@ -30,8 +30,7 @@ module Dato
 
       upload_file_to_bucket(url: upload_url, path: path_to_file)
 
-      job_id = upload_file_to_dato(upload_id:, attributes:)
-      {job_id:}
+      upload_file_to_dato(upload_id:, attributes:)
     end
 
     def retrieve_job_result(job_id)
