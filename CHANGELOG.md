@@ -1,8 +1,11 @@
 0.7.5
-* Hotfix: Fix a bug that caused file upload to return a 404
+
+* Hotfix: Resolved a bug in the upload method by returning the job_id 
+  instead of the upload_id, fixing the issue of file uploads returning a 404 error.
 * Changed the API to return job_id instead of upload_id
 
 0.7.4
+
 * Added file upload features
 * Updated README to reflect feature additions
 
