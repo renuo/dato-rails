@@ -99,7 +99,7 @@ RSpec.describe Dato::Client, :vcr do
       response = client.items.find(item_id:)
 
       expect(response.code).to eq(200)
-      expect(response.parse["data"]["attributes"]["picture"]["upload_id"]).to eq(upload_id)
+      expect(response.parse.dig('data', 'attributes', 'picture', 'upload_id')).to eq(upload_id)
     end
   end
 end
