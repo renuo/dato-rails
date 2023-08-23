@@ -91,7 +91,7 @@ RSpec.describe Dato::Client, :vcr do
         sleep 1
       end
 
-      upload_id = response["data"]["attributes"]["payload"]["data"]["id"]
+      upload_id = response.dig('data', 'attributes', 'payload', 'data', 'id')
 
       response = client.items.create(attributes: {name: "Hello world", picture: {upload_id:}}, item_type_id:)
       expect(response.code).to eq(201)
