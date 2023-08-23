@@ -210,24 +210,13 @@ Dato::Client.new.uploads.create_from_file(file.path, filename: 'test.png')
 
 
 ### Getting the upload id
-As the file upload is asynchronous, you may need to implement some kind of polling to check if the upload is finished. With the retrieve_job_result method you can retrieve the upload id from the job result.
+As the file upload is asynchronous, you may need to implement some kind of polling to check if the upload is finished. 
+With the retrieve_job_result method you can retrieve the upload id from the job result.
 ```ruby
-def poll_job_result(client, job_id, max_retries:) 
-  # Synchronously retrieve the job result
-  max_retries.times do |attempt|
-    response = client.uploads.retrieve_job_result(job_id).parse
-    unless response["data"]["attributes"].nil?
-      upload_id = response["data"]["attributes"]["payload"]["data"]["id"]
-      return upload_id
-    end
-    sleep(attempt)
-  end
-end
-
-job_id = client.uploads.create_from_file(file.path)[:job_id]
-upload_id = poll_job_result(client, job_id, max_retries: 15)
+job_id = client.uploads.create_from_file(file.path) # get back a job id
+response = client.uploads.retrieve_job_result(job_id).parse # check the status
+upload_id = response.dig('data', 'attributes', 'payload', 'data', 'id') # if nil, it's not done yet
 ```
-
 ## Configuration
 
 The following options are available:
