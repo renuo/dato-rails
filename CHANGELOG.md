@@ -1,5 +1,6 @@
 Unreleased
 * Add support for Rails credentials
+* Add a Dato::Fragments::MetaTags fragment
 
 0.7.5
 
