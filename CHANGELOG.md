@@ -1,3 +1,6 @@
+Unreleased
+* Add support for Rails credentials
+
 0.7.5
 
 * Hotfix: Resolved a bug in the upload method by returning the job_id 

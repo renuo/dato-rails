@@ -31,7 +31,8 @@ queries to the GraphQL endpoint.
 Look at GQLi documentation for more information about the syntax of queries.
 You can also find some examples in specs of this library.
 
-Set your api token as `DATO_API_TOKEN` environment variable.
+Set your api token as `DATO_API_TOKEN` environment variable or as `Rails.application.credentials.dig(:dato, :api_token)`.
+ENV variable will have precedence.
 
 ```ruby
 client = Dato::Client.new # you can also pass the api token here.
@@ -229,8 +230,9 @@ Dato::Config.configure do |config|
   config.blocks = {} # default: {}
   config.cache = false # default: false
   config.cache_namespace = 'dato-rails' # default: 'dato-rails'
-  config.publish_key = ENV['DATO_PUBLISH_KEY'] # default: ENV['DATO_PUBLISH_KEY']
-  config.build_trigger_id = ENV['DATO_BUILD_TRIGGER_ID'] # default: ENV['DATO_BUILD_TRIGGER_ID']
+  config.api_token = ENV['DATO_PUBLISH_KEY'] # default: ENV.fetch("DATO_API_TOKEN", Rails.application.credentials.dig(:dato, :api_token))
+  config.publish_key = ENV['DATO_PUBLISH_KEY'] # default: ENV.fetch("DATO_PUBLISH_KEY", Rails.application.credentials.dig(:dato, :publish_key))
+  config.build_trigger_id = ENV['DATO_BUILD_TRIGGER_ID'] # default: ENV.fetch("DATO_BUILD_TRIGGER_ID", Rails.application.credentials.dig(:dato, :build_trigger_id))
 end
 ```
 
