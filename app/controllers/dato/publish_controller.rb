@@ -7,7 +7,7 @@ module Dato
     before_action :check, only: :create
 
     def create
-      Rails.cache.clear(namespace: Dato::Config.cache_namespace)
+      Dato::Cache.clear!
 
       notify_success
 

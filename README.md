@@ -265,9 +265,9 @@ This means that for the next 24 hours, the graphQL endpoint will not be invoked 
 
 If you want to expire the cache you have two options:
 
-### manually
+### manual 
 
-executing `Rails.cache.clear(namespace: Dato::Config.cache_namespace)`
+executing `Dato::Cache.clear!`
 
 ### publish endpoint
 
@@ -279,7 +279,23 @@ You can take advantage of the publish mechanism of Dato CMS to expire the cache.
 * Set the `DATO_PUBLISH_KEY` as the Authorization header
 * Copy the build trigger id and set it as `DATO_BUILD_TRIGGER_ID` environment variable.
 
+### Caching of graphQL response / Controller helpers
 
+If you are not using ViewComponents or you need to cache a single graphQL query, you can still do it using the `Dato::Cache` helper.
+In your controllers you already have a helper method `execute_query`. 
+You can use it in your controller action and queries results will be automatically cached if:
+* You have Dato cache enabled
+* You have Rails cache enabled (check your environment configuration)
+* you are not displaying a preview
+
+```ruby
+response = execute_query(blog_post_query(params[:slug]), preview: params[:preview])
+@data = response.data
+```
+
+by using this helper, subsequent calls towards Dato will be cached.
+
+A call to `Dato.cache`
 
 ## Development
 

@@ -21,5 +21,9 @@ module Dato
     def self.namespace
       Dato::Config.cache_namespace
     end
+
+    def self.clear!
+      Rails.cache.clear(namespace: namespace)
+    end
   end
 end
