@@ -2,6 +2,7 @@ Unreleased
 * Add support for Rails credentials
 * Add a Dato::Fragments::MetaTags fragment
 * Introduced a `execute_query` controller method.
+* Support live updates for bigger amount of data (switch from GET to POST requests) 
 
 0.7.5
 

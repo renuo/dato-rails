@@ -124,7 +124,7 @@ you probably have the following:
 
 ```ruby
 result = Dato::Client.new.execute!(my_query)
-render(MyComponent.new(result))
+render(MyComponent.new(result.data))
 ```
 
 you can now wrap everything in a `Dato::Live` component like this:

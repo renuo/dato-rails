@@ -1,4 +1,4 @@
 Dato::Engine.routes.draw do
-  get "live", to: "live#show"
+  post "live", to: "live#create"
   post "publish", to: "publish#create"
 end
