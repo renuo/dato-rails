@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dato-rails (0.7.4)
+    dato-rails (0.7.5)
       gqli (>= 1)
       rails (>= 4)
       turbo-rails (>= 1)
@@ -93,7 +93,7 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
-    date (3.3.3)
+    date (3.4.0)
     diff-lcs (1.5.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
@@ -103,8 +103,8 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
-    globalid (1.1.0)
-      activesupport (>= 5.0)
+    globalid (1.2.1)
+      activesupport (>= 6.1)
     gqli (1.2.0)
       hashie (> 3.0)
       http (> 0.8, < 6.0)
@@ -134,7 +134,7 @@ GEM
       net-imap
       net-pop
       net-smtp
-    marcel (1.0.2)
+    marcel (1.0.4)
     matrix (0.4.2)
     method_source (1.0.0)
     mimemagic (0.4.3)
@@ -143,16 +143,16 @@ GEM
     mini_mime (1.1.2)
     minitest (5.17.0)
     multi_json (1.15.0)
-    net-imap (0.3.7)
+    net-imap (0.5.1)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.1)
+    net-protocol (0.2.2)
       timeout
-    net-smtp (0.3.3)
+    net-smtp (0.5.0)
       net-protocol
-    nio4r (2.5.9)
+    nio4r (2.7.4)
     nokogiri (1.14.1-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.14.1-x86_64-darwin)
@@ -235,10 +235,9 @@ GEM
       rubocop (= 1.44.1)
       rubocop-performance (= 1.15.2)
     thor (1.2.1)
-    timeout (0.4.0)
-    turbo-rails (1.4.0)
+    timeout (0.4.2)
+    turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -247,8 +246,8 @@ GEM
     unf_ext (0.0.8.2)
     unicode-display_width (2.4.2)
     vcr (6.1.0)
-    view_component (3.5.0)
-      activesupport (>= 5.2.0, < 8.0)
+    view_component (3.20.0)
+      activesupport (>= 5.2.0, < 8.1)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
     webmock (3.18.1)
