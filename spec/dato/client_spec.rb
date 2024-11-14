@@ -6,7 +6,7 @@ RSpec.describe Dato::Client, :vcr do
   let(:preview) { false }
   let(:live) { false }
   let(:client) { described_class.new(preview:, live:) }
-  let(:item_type_id) { ENV["TEST_MODEL_TYPE_ID"] }
+  let(:item_type_id) { ENV.fetch("TEST_MODEL_TYPE_ID", "1318857") }
 
   it "can execute a query without errors" do
     response = client.execute!(homepage_query)
