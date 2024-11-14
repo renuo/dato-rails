@@ -31,7 +31,8 @@ queries to the GraphQL endpoint.
 Look at GQLi documentation for more information about the syntax of queries.
 You can also find some examples in specs of this library.
 
-Set your api token as `DATO_API_TOKEN` environment variable or as `Rails.application.credentials.dig(:dato, :api_token)`.
+Set your api token as `DATO_API_TOKEN` environment variable or as
+`Rails.application.credentials.dig(:dato, :api_token)`.
 ENV variable will have precedence.
 
 ```ruby
@@ -58,7 +59,7 @@ GQLi::DSL.query {
         __typename
         id
         image {
-          responsiveImage(imgixParams: {fm: __enum("png")}) {
+          responsiveImage(imgixParams: { fm: __enum("png") }) {
             ___ Dato::Fragments::ResponsiveImage
           }
         }
@@ -87,7 +88,8 @@ If you have a responsive image, you can render it with:
 render Dato::ResponsiveImage.new(node.image.responsiveImage)
 ```
 
-To define a custom node, you can create a new `Dato::CustomNode` view component in your application and it will be automatically used.
+To define a custom node, you can create a new `Dato::CustomNode` view component in your application and it will be
+automatically used.
 
 You can also customize how each node type is rendered by specifying the mapping on the single render:
 
@@ -107,7 +109,9 @@ Dato::Config.overrides = {
 
 ## Preview and live
 
-The `Dato::Client` supports both [preview](https://www.datocms.com/docs/pro-tips/how-to-manage-a-live-and-a-preview-site) and [live updates](https://www.datocms.com/docs/real-time-updates-api) features from Dato CMS.
+The `Dato::Client` supports
+both [preview](https://www.datocms.com/docs/pro-tips/how-to-manage-a-live-and-a-preview-site)
+and [live updates](https://www.datocms.com/docs/real-time-updates-api) features from Dato CMS.
 
 ```ruby
 Dato::Client.new(preview: true) # to fetch draft versions
@@ -171,24 +175,26 @@ Dato::Client.new.items.destroy(item_id: '123')
 
 ## File upload
 
-Dato Rails also supports file uploads. 
-These can be created either from a local file or from a url. 
+Dato Rails also supports file uploads.
+These can be created either from a local file or from a url.
 Basically all file types are supported, as long as they are valid in the CMS.
-Be aware that dato jobs are not synchronous, so you may need to 
+Be aware that dato jobs are not synchronous, so you may need to
 implement some kind of polling to check if the upload is finished.
 The create method returns a job id, which can be used to retrieve the upload result.
 
-> In addition to the binary file, also attributes and metadata can be uploaded. 
-Both metadata and attributes are optional.
+> In addition to the binary file, also attributes and metadata can be uploaded.
+> Both metadata and attributes are optional.
 > Provide attributes according to the [docs](https://www.datocms.com/docs/content-management-api/resources/upload)
 
 ### Upload from Url
+
 ```ruby
 Dato::Client.new.uploads.create_from_url('https://picsum.photos/seed/picsum/200/300')
 Dato::Client.new.uploads.create_from_url('https://picsum.photos/seed/picsum/200/300', attributes:)
 ```
 
 ### Upload from Local File
+
 ```ruby
 file = File.open('image.png')
 
@@ -204,20 +210,23 @@ attributes = { author: 'Dato Rails', default_field_metadata: meta }
 ```
 
 ### Optional: Filename
+
 ```ruby
 Dato::Client.new.uploads.create_from_url('https://picsum.photos/seed/picsum/200/300', filename: 'test.png')
 Dato::Client.new.uploads.create_from_file(file.path, filename: 'test.png')
 ```
 
-
 ### Getting the upload id
-As the file upload is asynchronous, you may need to implement some kind of polling to check if the upload is finished. 
+
+As the file upload is asynchronous, you may need to implement some kind of polling to check if the upload is finished.
 With the retrieve_job_result method you can retrieve the upload id from the job result.
+
 ```ruby
 job_id = client.uploads.create_from_file(file.path) # get back a job id
 response = client.uploads.retrieve_job_result(job_id).parse # check the status
 upload_id = response.dig('data', 'attributes', 'payload', 'data', 'id') # if nil, it's not done yet
 ```
+
 ## Configuration
 
 The following options are available:
@@ -257,21 +266,23 @@ Now a call to
 render(Dato::Live.new(MyComponent, my_query))
 ```
 
-will be cached for 1 day. 
+will be cached for 1 day.
 
-This means that for the next 24 hours, the graphQL endpoint will not be invoked and the whole component rendering will also be skipped.
+This means that for the next 24 hours, the graphQL endpoint will not be invoked and the whole component rendering will
+also be skipped.
 
 **We will cache the entire HTML result of the component, not only the graphQL response.**
 
 If you want to expire the cache you have two options:
 
-### manual 
+### manual
 
 executing `Dato::Cache.clear!`
 
 ### publish endpoint
 
 You can take advantage of the publish mechanism of Dato CMS to expire the cache.
+
 * Mount the `dato-rails` engine in your Rails routes file.
 * Set the `DATO_PUBLISH_KEY` environment variable
 * Create a build trigger with a custom webhook on your Dato CMS project setting.
@@ -281,9 +292,11 @@ You can take advantage of the publish mechanism of Dato CMS to expire the cache.
 
 ### Caching of graphQL response / Controller helpers
 
-If you are not using ViewComponents or you need to cache a single graphQL query, you can still do it using the `Dato::Cache` helper.
-In your controllers you already have a helper method `execute_query`. 
+If you are not using ViewComponents or you need to cache a single graphQL query, you can still do it using the
+`Dato::Cache` helper.
+In your controllers you already have a helper method `execute_query`.
 You can use it in your controller action and queries results will be automatically cached if:
+
 * You have Dato cache enabled
 * You have Rails cache enabled (check your environment configuration)
 * you are not displaying a preview
@@ -299,38 +312,32 @@ A call to `Dato.cache`
 
 ## Development
 
-After checking out the repo, run `bundle install` to install dependencies. 
+After checking out the repo, run `bundle install` to install dependencies.
 
 You can now clone the dato-rails project
 
 [![Clone DatoCMS project](https://dashboard.datocms.com/clone/button.svg)](https://dashboard.datocms.com/clone?projectId=57262&name=dato-rails
 )
 
-
 You then need to set a `DATO_API_TOKEN=abcd123x` in the `.env` file on the root of your project
 to consume data from your project. For testing purposes, set `TEST_MODEL_TYPE_ID=1234` in the `.env` file
 with the id of the author model type in your project.
 
-Then, run `bundle exec rspec` to run the tests. 
+Then, run `bundle exec rspec` to run the tests.
 
 You can also run `rails console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. 
-To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, 
-which will create a git tag for the version, push git commits and the created tag, 
+To install this gem onto your local machine, run `bundle exec rake install`.
+To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`,
+which will create a git tag for the version, push git commits and the created tag,
 and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/renuo/dato-rails. 
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to 
-adhere to the [code of conduct](https://github.com/renuo/dato-rails/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/renuo/dato-rails.
+This project is intended to be a safe, welcoming space for collaboration. 
+Try to be a decent human being while interacting with others.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Dato::Rails project's codebases, issue trackers, chat rooms and mailing lists is 
-expected to follow the [code of conduct](https://github.com/renuo/dato-rails/blob/master/CODE_OF_CONDUCT.md).
