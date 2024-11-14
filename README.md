@@ -336,7 +336,8 @@ and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/renuo/dato-rails.
 This project is intended to be a safe, welcoming space for collaboration. 
-Try to be a decent human being while interacting with others.
+
+Try to be a decent human being while interacting with other people.
 
 ## License
 
