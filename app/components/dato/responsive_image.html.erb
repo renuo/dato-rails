@@ -4,7 +4,7 @@
     <picture style="position: absolute; left: 0; top: 0; width: 100%">
       <source srcset="<%= @node.webpSrcSet %>" type="image/webp">
       <source srcset="<%= @node.srcSet %>">
-      <img src="<%= @node.src %>" alt="<%= @node.alt %>" title="<%= @node.title %>" loading="lazy" width="100%">
+      <img src="<%= @node.src %>" alt="<%= @node.alt %>" title="<%= @node.title %>" loading="lazy" width="100%"  class="<%= @custom_img_css_classes %>">
     </picture>
   </div>
 </div>
