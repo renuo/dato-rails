@@ -1,6 +1,6 @@
 module Dato
   class Wrapper < ViewComponent::Base
-    attr_reader :component_klass, :query, :data, :preview, :live
+    attr_reader :component_klass, :query, :preview, :live
 
     def initialize(component_klass, query, preview: false, live: false)
       @component_klass = component_klass

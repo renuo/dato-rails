@@ -6,11 +6,11 @@ RSpec.describe Dato::PublishController, type: :request, vcr: true do
   let(:dato_client) { Dato::Client.new }
 
   def render
-    render_inline(Dato::Live.new(HomepageComponent, homepage_query))
+    render_inline(Dato::Wrapper.new(HomepageComponent, homepage_query))
   end
 
   before do
-    Rails.cache.clear(namespace: "dato-cms")
+    Dato::Cache.clear!
     Dato::Config.cache = true
     allow(Dato::Client).to receive(:new).and_return(dato_client)
   end

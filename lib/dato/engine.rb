@@ -2,7 +2,7 @@ module Dato
   class Engine < ::Rails::Engine
     isolate_namespace Dato
 
-    initializer 'dato_rails.action_controller' do
+    initializer "dato_rails.action_controller" do
       ActiveSupport.on_load(:action_controller) do
         include Dato::Railties::ControllerRuntime
       end
@@ -13,7 +13,7 @@ module Dato
       end
     end
 
-    initializer 'dato_rails.configuration' do |app|
+    initializer "dato_rails.configuration" do |app|
       if Dato::Config.mount_path
         app.routes.append do
           mount Dato::Engine => Dato::Config.mount_path

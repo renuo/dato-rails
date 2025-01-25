@@ -4,6 +4,7 @@ require "dato"
 require "dotenv/load"
 require "support/queries"
 require "vcr"
+require "ostruct"
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"

@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Dato::Paragraph, type: :component do
   let(:dast_node) { {type: "paragraph"} }
-  let(:root_node) { OpenStruct.new({ overrides: {} }) }
+  let(:root_node) { OpenStruct.new({overrides: {}}) }
   subject(:rendered) { render_inline(described_class.new(Hashie::Mash.new(dast_node), root_node)) }
 
   it "can render a paragraph" do
@@ -10,20 +10,22 @@ RSpec.describe Dato::Paragraph, type: :component do
   end
 
   context "when it has content" do
-    let(:dast_node) { {
-      type: 'paragraph',
-      children: [
-        { type: 'span', value: 'Bold Text ' },
-        {
-          type: 'link',
-          url: 'https://www.example.com/',
-          children: [{ type: 'span', value: 'Example Link' }]
-        },
-        { type: 'span', value: ' Underlined Text' }
-      ]
-    } }
+    let(:dast_node) {
+      {
+        type: "paragraph",
+        children: [
+          {type: "span", value: "Bold Text "},
+          {
+            type: "link",
+            url: "https://www.example.com/",
+            children: [{type: "span", value: "Example Link"}]
+          },
+          {type: "span", value: " Underlined Text"}
+        ]
+      }
+    }
 
-    it 'strips whitespaces' do
+    it "strips whitespaces" do
       expect(rendered.to_html).to eq('<p class="dato-cms-paragraph"><span class="dato-cms-span">Bold Text </span><a href="https://www.example.com/" class="dato-cms-link"><span class="dato-cms-span">Example Link</span></a><span class="dato-cms-span"> Underlined Text</span></p>')
     end
   end

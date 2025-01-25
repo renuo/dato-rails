@@ -28,7 +28,7 @@ module Dato
     private
 
     def class_for_block(block)
-      class_name = (overrides[block.__typename] || Dato::Config.overrides[block.__typename])
+      class_name = overrides[block.__typename] || Dato::Config.overrides[block.__typename]
       if class_name.is_a?(String)
         class_name = class_name.constantize
       end
@@ -40,7 +40,7 @@ module Dato
     end
 
     def class_for_node(node)
-      class_name = (overrides[node.type] || Dato::Config.overrides[node.type])
+      class_name = overrides[node.type] || Dato::Config.overrides[node.type]
       if class_name.is_a?(String)
         class_name = class_name.constantize
       end

@@ -12,7 +12,7 @@ class Dato::Link < Dato::DastNode
   def link_attributes
     attr = {
       "href" => @node.url,
-      "class" => "dato-cms-#{@node.type}",
+      "class" => "dato-cms-#{@node.type}"
     }
     %w[rel target].each { |type| attr[type] = extract_meta(type) }
     attr
