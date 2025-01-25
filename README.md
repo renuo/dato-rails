@@ -5,6 +5,7 @@ Use [DatoCMS](https://www.datocms.com/) in your Rails application.
 This gem allows you to fetch data using Dato GraphQL APIs and render the content in your Rails app.
 
 👉 See [this simple tutorial to get started on dev.to](https://dev.to/coorasse/datocms-with-ruby-on-rails-3ae5). 👈
+👉 See also [this second tutorial to build a Blog](https://dev.to/coorasse/rails-blog-with-datocms-264j-temp-slug-4336490). 👈
 
 ## Installation
 
@@ -131,10 +132,10 @@ result = Dato::Client.new.execute!(my_query)
 render(MyComponent.new(result.data))
 ```
 
-you can now wrap everything in a `Dato::Live` component like this:
+you can now wrap everything in a `Dato::Wrapper` component like this:
 
 ```ruby
-render(Dato::Live.new(MyComponent, my_query, preview: true, live: true))
+render(Dato::Wrapper.new(MyComponent, my_query, preview: true, live: true))
 ```
 
 and your component will come to life with live updates 🎉 (requires turbo).
@@ -242,13 +243,14 @@ Dato::Config.configure do |config|
   config.api_token = ENV['DATO_PUBLISH_KEY'] # default: ENV.fetch("DATO_API_TOKEN", Rails.application.credentials.dig(:dato, :api_token))
   config.publish_key = ENV['DATO_PUBLISH_KEY'] # default: ENV.fetch("DATO_PUBLISH_KEY", Rails.application.credentials.dig(:dato, :publish_key))
   config.build_trigger_id = ENV['DATO_BUILD_TRIGGER_ID'] # default: ENV.fetch("DATO_BUILD_TRIGGER_ID", Rails.application.credentials.dig(:dato, :build_trigger_id))
+  config.mount_path = '/dato' # default: '/dato'
 end
 ```
 
 ## Caching
 
 The library supports caching of the rendered components.
-If you enable caching, the components rendered using `Dato::Live`, will be cached.
+If you enable caching, the components rendered using `Dato::Wrapper`, will be cached.
 
 To enable caching, you need to set the `cache` option in the configuration.
 
@@ -263,7 +265,7 @@ end
 Now a call to
 
 ```ruby
-render(Dato::Live.new(MyComponent, my_query))
+render(Dato::Wrapper.new(MyComponent, my_query))
 ```
 
 will be cached for 1 day.
@@ -277,14 +279,13 @@ If you want to expire the cache you have two options:
 
 ### manual
 
-executing `Dato::Cache.clear!`
+executing `Dato::Cache.clear!` or running `bin/rails dato:cache:clear`.
 
 ### publish endpoint
 
 You can take advantage of the publish mechanism of Dato CMS to expire the cache.
 
-* Mount the `dato-rails` engine in your Rails routes file.
-* Set the `DATO_PUBLISH_KEY` environment variable
+* Set the `DATO_PUBLISH_KEY` environment variable or in Rails Credentials.
 * Create a build trigger with a custom webhook on your Dato CMS project setting.
 * Define the Trigger URL as `https://yourapp.com/dato/publish`
 * Set the `DATO_PUBLISH_KEY` as the Authorization header
@@ -292,23 +293,34 @@ You can take advantage of the publish mechanism of Dato CMS to expire the cache.
 
 ### Caching of graphQL response / Controller helpers
 
-If you are not using ViewComponents or you need to cache a single graphQL query, you can still do it using the
+If you are not using ViewComponents or you need to cache a single GraphQL query, you can still do it using the
 `Dato::Cache` helper.
-In your controllers you already have a helper method `execute_query`.
+
+In your controllers you already have a helper method `execute_dato_query`.
 You can use it in your controller action and queries results will be automatically cached if:
 
-* You have Dato cache enabled
+* You have `Dato` cache enabled
 * You have Rails cache enabled (check your environment configuration)
 * you are not displaying a preview
 
 ```ruby
-response = execute_query(blog_post_query(params[:slug]), preview: params[:preview])
+response = execute_dato_query(blog_post_query(params[:slug]), preview: params[:preview])
 @data = response.data
 ```
 
 by using this helper, subsequent calls towards Dato will be cached.
 
-A call to `Dato.cache`
+## Logs instrumentation
+
+In the logs you will see the time taken to fetch the data from Dato CMS.
+For example:
+
+```
+Completed 200 OK in 365ms (Views: 109.5ms | ActiveRecord: 0.7ms (4 queries, 0 cached) | Dato: 254.3ms | GC: 0.0ms)`
+```
+
+this is useful to identify if the bottleneck is in the fetching of the data from Dato CMS.
+
 
 ## Development
 
