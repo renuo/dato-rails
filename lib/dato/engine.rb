@@ -4,18 +4,19 @@ module Dato
 
     initializer 'dato_rails.action_controller' do
       ActiveSupport.on_load(:action_controller) do
-        ::ActionController::Base.class_eval do
-          def execute_query(query, preview: false)
-            client = Dato::Client.new(preview: preview)
-            if preview
-              return client.execute!(query)
-            end
+        include Dato::Railties::ControllerRuntime
+      end
 
-            key = "#{Digest::MD5.hexdigest(query.to_gql)}-query"
-            Dato::Cache.fetch(key) do
-              client.execute!(query)
-            end
-          end
+      ActiveSupport::Notifications.subscribe("dato.query_execution") do |_, start, finish, _, _payload|
+        Dato::CurrentRequest.dato_runtime ||= 0
+        Dato::CurrentRequest.dato_runtime += (finish - start) * 1000
+      end
+    end
+
+    initializer 'dato_rails.configuration' do |app|
+      if Dato::Config.mount_path
+        app.routes.append do
+          mount Dato::Engine => Dato::Config.mount_path
         end
       end
     end
