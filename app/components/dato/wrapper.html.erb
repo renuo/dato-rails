@@ -1,0 +1,32 @@
+<% if live? %>
+  <script type="text/javascript">
+      const eventSourceUrl = '<%= data.url %>';
+      const componentKlass = '<%= component_klass %>';
+      const frameId = '<%= frame_id %>';
+      const path = '<%= Dato::Engine.routes.url_helpers.live_path %>';
+      const eventSource = new EventSource(eventSourceUrl);
+      const csrfToken = document.querySelector('meta[name="csrf-token"]').content
+      eventSource.addEventListener("update", (event) => {
+          fetch(path, {
+              method: "POST",
+              headers: {
+                  'X-CSRF-Token': csrfToken,
+                  'Content-Type': 'application/json',
+                  "Accept": "text/vnd.turbo-stream.html"
+              },
+              body: JSON.stringify({
+                  component: componentKlass,
+                  data: event.data,
+                  frame_id: frameId
+              })
+          }).then(response => response.text())
+              .then(html => Turbo.renderStreamMessage(html));
+      });
+  </script>
+
+  <div id=<%= frame_id %>></div>
+<% else %>
+  <%= Dato::Cache.fetch(cache_key) do %>
+    <% render(component_klass.new(data)) %>
+  <% end %>
+<% end %>
