@@ -1,12 +1,21 @@
-Unreleased
-* Add support for Rails credentials
-* Add a Dato::Fragments::MetaTags fragment
-* Introduced a `execute_query` controller method.
-* Support live updates for bigger amount of data (switch from GET to POST requests) 
+0.9.0
+
+* Added support for Rails credentials
+* Added a default Dato::Fragments::MetaTags fragment
+* Added a default Dato::ImageBlockRecord defalt component
+* Introduced a `execute_dato_query` controller method.
+* Support live updates for bigger amount of data (switch from GET to POST requests)
+* An abstract `Dato::BaseComponent` is introduced and your components can extend it. It will initialize the data
+  variable.
+* `Dato::Live` is renamed into `Dato::LiveStream` but is not supposed to be used directly anymore. Instead
+  `Dato::Wrapper` is now used to wrap your components and give the abilities to preview, live and cache
+*  The time necessary by Dato to execute queries is now instrumented and can be seen in the logs.
+*  A convenient `bin/rails dato:cache:clear` rake task is available.
+*  Engine is mounted automatically under `/dato`
 
 0.7.5
 
-* Hotfix: Resolved a bug in the upload method by returning the job_id 
+* Hotfix: Resolved a bug in the upload method by returning the job_id
   instead of the upload_id, fixing the issue of file uploads returning a 404 error.
 * Changed the API to return job_id instead of upload_id
 
