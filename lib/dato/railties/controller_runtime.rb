@@ -9,7 +9,7 @@ module Dato
           return client.execute!(query)
         end
 
-        key = "#{Digest::MD5.hexdigest(query.to_gql)}-query"
+        key = "#{Digest::MD5.hexdigest(query.to_gql)}-query-#{preview}"
         Dato::Cache.fetch(key) do
           client.execute!(query)
         end
