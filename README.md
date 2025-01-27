@@ -5,7 +5,8 @@ Use [DatoCMS](https://www.datocms.com/) in your Rails application.
 This gem allows you to fetch data using Dato GraphQL APIs and render the content in your Rails app.
 
 👉 See [this simple tutorial to get started on dev.to](https://dev.to/coorasse/datocms-with-ruby-on-rails-3ae5). 👈
-👉 See also [this second tutorial to build a Blog](https://dev.to/coorasse/rails-blog-with-datocms-264j-temp-slug-4336490). 👈
+
+👉 See also [this second tutorial to build a Blog](https://dev.to/coorasse/rails-blog-with-datocms-2h1e). 👈
 
 ## Installation
 
