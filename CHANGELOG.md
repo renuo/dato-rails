@@ -1,3 +1,7 @@
+0.9.1
+
+* Added support for X-Base-Editing-Url header
+
 0.9.0
 
 * Added support for Rails credentials

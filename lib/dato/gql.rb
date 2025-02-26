@@ -2,11 +2,12 @@ module Dato
   class Gql < GQLi::Client
     def initialize(api_token, validate_query, preview, live)
       @api_token = api_token
+      headers = {"Authorization" => @api_token}
+      headers["X-Base-Editing-Url"] = Dato::Config.base_editing_url if Dato::Config.base_editing_url.present?
+
       super(
         "https://graphql#{"-listen" if live}.datocms.com/#{"preview" if preview}",
-        headers: {
-          "Authorization" => @api_token
-        },
+        headers: headers,
         validate_query: validate_query && !live
       )
     end
