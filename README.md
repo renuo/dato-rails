@@ -283,7 +283,7 @@ You can take advantage of the publish mechanism of Dato CMS to expire the cache.
 If you are not using ViewComponents or you need to cache a single GraphQL query, you can still do it using the
 `Dato::Cache` helper.
 
-In your controllers you already have a helper method `execute_dato_query`.
+In your controllers you already have a helper method `execute_dato_query!`.
 You can use it in your controller action and queries results will be automatically cached if:
 
 * You have `Dato` cache enabled
@@ -291,7 +291,7 @@ You can use it in your controller action and queries results will be automatical
 * you are not displaying a preview
 
 ```ruby
-response = execute_dato_query(blog_post_query(params[:slug]), preview: params[:preview])
+response = execute_dato_query!(blog_post_query(params[:slug]), preview: params[:preview])
 @data = response.data
 ```
 

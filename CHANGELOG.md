@@ -1,6 +1,7 @@
 0.9.1
 
 * Added support for X-Base-Editing-Url header
+* Added `execute_dato_query!` controller method, that does not silently fail but raises an exception.
 
 0.9.0
 
