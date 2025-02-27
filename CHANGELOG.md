@@ -1,3 +1,13 @@
+0.10.0
+
+* Added `execute_dato_query!` controller method, that does not silently fail but raises an exception.
+* Improved error messages for unknown blocks
+* Add support for item links
+* Add support for inline items
+* Add support for inline blocks
+* Render a `div` tag for paragraphs instead of `p`: this might cause breaking changes if you assigned CSS directly to
+  the `p` tags.
+
 0.9.1
 
 * Added support for X-Base-Editing-Url header
@@ -13,9 +23,9 @@
   variable.
 * `Dato::Live` is renamed into `Dato::LiveStream` but is not supposed to be used directly anymore. Instead
   `Dato::Wrapper` is now used to wrap your components and give the abilities to preview, live and cache
-*  The time necessary by Dato to execute queries is now instrumented and can be seen in the logs.
-*  A convenient `bin/rails dato:cache:clear` rake task is available.
-*  Engine is mounted automatically under `/dato`
+* The time necessary by Dato to execute queries is now instrumented and can be seen in the logs.
+* A convenient `bin/rails dato:cache:clear` rake task is available.
+* Engine is mounted automatically under `/dato`
 
 0.7.5
 

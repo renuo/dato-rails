@@ -3,6 +3,7 @@ module Dato
     include ActiveSupport::Configurable
 
     config_accessor(:overrides) { {} }
+    config_accessor(:links_mapping) { {} }
     config_accessor(:blocks) { {} }
     config_accessor(:cache) { false }
     config_accessor(:cache_namespace) { "dato-rails" }

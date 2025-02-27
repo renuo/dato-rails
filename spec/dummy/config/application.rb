@@ -6,6 +6,7 @@ require "active_support/core_ext"
 
 Bundler.require(*Rails.groups)
 
+require "turbo-rails"
 require "dato"
 
 module Dummy

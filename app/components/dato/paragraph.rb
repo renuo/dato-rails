@@ -6,6 +6,6 @@ class Dato::Paragraph < Dato::DastNode
   end
 
   def generated_tag
-    "p"
+    "div"
   end
 end
