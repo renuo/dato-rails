@@ -90,24 +90,7 @@ If you have a responsive image, you can render it with:
 render Dato::ResponsiveImage.new(node.image.responsiveImage)
 ```
 
-To define a custom node, you can create a new `Dato::CustomNode` view component in your application and it will be
-automatically used.
-
-You can also customize how each node type is rendered by specifying the mapping on the single render:
-
-```ruby
-render Dato::StructuredText.new(response.data.homepage.content, overrides: { link: Dato::NotRendered })
-```
-
-or globally:
-
-```
-# config/initializers/dato.rb
-
-Dato::Config.overrides = {
-  link: 'Dato::NotRendered'
-}.with_indifferent_access
-```
+Read more about [StructuredText - Custom Nodes](docs/custom_nodes.md).
 
 ## Preview and live
 
@@ -244,6 +227,7 @@ Dato::Config.configure do |config|
   config.api_token = ENV['DATO_PUBLISH_KEY'] # default: ENV.fetch("DATO_API_TOKEN", Rails.application.credentials.dig(:dato, :api_token))
   config.publish_key = ENV['DATO_PUBLISH_KEY'] # default: ENV.fetch("DATO_PUBLISH_KEY", Rails.application.credentials.dig(:dato, :publish_key))
   config.build_trigger_id = ENV['DATO_BUILD_TRIGGER_ID'] # default: ENV.fetch("DATO_BUILD_TRIGGER_ID", Rails.application.credentials.dig(:dato, :build_trigger_id))
+  config.base_editing_url = ENV['DATO_BASE_EDITING_URL'] # default: ENV.fetch("DATO_BASE_EDITING_URL", Rails.application.credentials.dig(:dato, :base_editing_url))
   config.mount_path = '/dato' # default: '/dato'
 end
 ```
@@ -323,7 +307,6 @@ Completed 200 OK in 365ms (Views: 109.5ms | ActiveRecord: 0.7ms (4 queries, 0 ca
 ```
 
 this is useful to identify if the bottleneck is in the fetching of the data from Dato CMS.
-
 
 ## Development
 
