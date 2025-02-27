@@ -1,0 +1,18 @@
+<% if inline_item.__typename.nil? %>
+  <%= error_block do %>
+    In order to render an item link, you need to return its <code>__typename</code>.<br>
+    In your GraphQL query, add <code>__typename</code> to the list of fields returned for the blocks.<br>
+    For example:<br><br>
+    <code>
+      links {
+      __typename
+      }
+    </code>
+  <% end %>
+<% else %>
+  <%= tag.a(**link_attributes) do -%>
+    <% @node.children&.each do |node| -%>
+      <%= render_node(node) -%>
+    <% end -%>
+  <% end -%>
+<% end  %>

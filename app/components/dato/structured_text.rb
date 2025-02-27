@@ -13,6 +13,7 @@ class Dato::StructuredText < Dato::Node
     @overrides = overrides.with_indifferent_access
     @structured_text_node = structured_text_node
     @blocks = structured_text_node.blocks
+    @links = structured_text_node.links
   end
 
   def root
@@ -20,6 +21,7 @@ class Dato::StructuredText < Dato::Node
   end
 
   attr_reader :blocks
+  attr_reader :links
 
   attr_reader :overrides
 end

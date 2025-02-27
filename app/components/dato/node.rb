@@ -17,6 +17,10 @@ module Dato
       root.blocks
     end
 
+    def links
+      root.links
+    end
+
     def overrides
       root.overrides
     end
