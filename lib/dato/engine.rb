@@ -1,4 +1,6 @@
 module Dato
+  class InvalidGraphqlQuery < StandardError; end
+
   class Engine < ::Rails::Engine
     isolate_namespace Dato
 

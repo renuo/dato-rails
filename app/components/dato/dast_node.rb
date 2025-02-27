@@ -13,5 +13,11 @@ module Dato
     def generated_tag
       @type
     end
+
+    private
+
+    def extract_meta(type)
+      @node.meta&.find { |m| m.id == type }&.value
+    end
   end
 end

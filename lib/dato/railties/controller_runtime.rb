@@ -5,14 +5,19 @@ module Dato
 
       def execute_dato_query(query, preview: false)
         client = Dato::Client.new(preview: preview)
-        if preview
-          return client.execute!(query)
-        end
+        return client.execute!(query) if preview
 
         key = "#{Digest::MD5.hexdigest(query.to_gql)}-query-#{preview}"
         Dato::Cache.fetch(key) do
           client.execute!(query)
         end
+      end
+
+      def execute_dato_query!(query, preview: false)
+        response = execute_dato_query(query, preview: preview)
+        raise(InvalidGraphqlQuery, response.errors.first.message) if response.errors&.any?
+
+        response
       end
 
       module ClassMethods # :nodoc:
