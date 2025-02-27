@@ -59,8 +59,6 @@ module Dato
       lambda = Dato::Config.links_mapping[inline_item.__typename]
       if lambda
         instance_exec(inline_item, &lambda)
-      else
-        nil
       end
     end
 

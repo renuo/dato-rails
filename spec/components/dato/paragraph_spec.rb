@@ -6,7 +6,7 @@ RSpec.describe Dato::Paragraph, type: :component do
   subject(:rendered) { render_inline(described_class.new(Hashie::Mash.new(dast_node), root_node)) }
 
   it "can render a paragraph" do
-    is_expected.to have_selector("p.dato-cms-paragraph")
+    is_expected.to have_selector("div.dato-cms-paragraph")
   end
 
   context "when it has content" do
@@ -26,7 +26,7 @@ RSpec.describe Dato::Paragraph, type: :component do
     }
 
     it "strips whitespaces" do
-      expect(rendered.to_html).to eq('<p class="dato-cms-paragraph"><span class="dato-cms-span">Bold Text </span><a href="https://www.example.com/" class="dato-cms-link"><span class="dato-cms-span">Example Link</span></a><span class="dato-cms-span"> Underlined Text</span></p>')
+      expect(rendered.to_html).to eq("<div class=\"dato-cms-paragraph\">\n<span class=\"dato-cms-span\">Bold Text </span><a href=\"https://www.example.com/\" class=\"dato-cms-link\"><span class=\"dato-cms-span\">Example Link</span></a><span class=\"dato-cms-span\"> Underlined Text</span>\n</div>")
     end
   end
 end
