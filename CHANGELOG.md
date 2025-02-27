@@ -2,6 +2,8 @@ Unreleased
 
 * Added `execute_dato_query!` controller method, that does not silently fail but raises an exception.
 * Improved error messages for unknown blocks
+* Add support for item links
+* Add support for inline items
 
 0.9.1
 
