@@ -51,7 +51,7 @@ automatically used to render your blocks.
 You can also customize how each node type is rendered by specifying the mapping on the single render:
 
 ```ruby
-render Dato::StructuredText.new(content, 
+render Dato::StructuredText.new(content,
                                 overrides: { "PillButtonRecord" => "Dato::PillButtonRecordV2" })
 ```
 
@@ -67,4 +67,8 @@ Dato::Config.overrides = {
 
 inside the ViewComponent, you have a `@node` instance variable with all the data returned by the query.
 
+## Links
+
+If you use links to items in your StructuredText you can define how those links should be resolved by using
+`config.links_mapping`.
 
