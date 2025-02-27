@@ -43,6 +43,27 @@ module Dato
       end
     end
 
+    def class_for_inline_item(inline_item)
+      class_name = overrides[inline_item.__typename] || Dato::Config.overrides[inline_item.__typename]
+      if class_name.is_a?(String)
+        class_name = class_name.constantize
+      end
+      begin
+        class_name || class_by_type(inline_item.__typename).constantize
+      rescue NameError
+        nil
+      end
+    end
+
+    def path_for_inline_item(inline_item)
+      lambda = Dato::Config.links_mapping[inline_item.__typename]
+      if lambda
+        instance_exec(inline_item, &lambda)
+      else
+        nil
+      end
+    end
+
     def class_for_node(node)
       class_name = overrides[node.type] || Dato::Config.overrides[node.type]
       if class_name.is_a?(String)
