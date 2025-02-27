@@ -1,0 +1,39 @@
+<% inline_item = links.find { |b| b.id == @node.item } %>
+
+<% if inline_item.present? %>
+  <% if class_for_inline_item(inline_item).present? %>
+    <%= render class_for_inline_item(inline_item).new(inline_item, root) %>
+  <% elsif path_for_inline_item(inline_item).present? %>
+    <%= link_to inline_item.title, path_for_inline_item(inline_item), class: "dato-cms-#{@node.type}" %>
+  <% else %>
+    <%= error_block do %>
+      This is an unknown InlineItem. Here is the content:<br>
+      <pre><%= JSON.pretty_generate(inline_item) %></pre>
+      This is a link, so you have some options:
+      <ul>
+        <li>Define the function to generate path for this item. For example:<br>
+            <code>
+              config.links_mapping = {<br>
+              &nbsp;'<%= inline_item.__typename %>' => ->(inline_item) { blog_post_path(inline_item.slug) }<br>
+              }<br>
+            </code>
+            This will use the default link renderer, and set the href attribute according to your definition.
+        </li>
+        <li>
+          Define a class in your <code>app/components/dato</code> folder. For example:<br>
+          <code>
+            class <%= class_by_type(inline_item.__typename) %> < Dato::Node<br>
+            ...<br>
+            end<br>
+          </code><br>
+        </li>
+        <li>Not render it by excluding it from your GraphQL Query</li>
+        <li>Not render it by using the overrides: <code>{overrides: '<%= @node.__typename %>': Dato::NotRendered }</code></li>
+      </ul>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= error_block do %>
+    I don't know this inline item.
+  <% end %>
+<% end %>
