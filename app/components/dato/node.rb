@@ -54,5 +54,10 @@ module Dato
     def class_by_type(type)
       "Dato::#{type.classify}"
     end
+
+    def error_block(&block)
+      content = capture(&block)
+      content_tag(:div, content, style: "border: 3px dotted limegreen; display: inline-block; padding: 5px;font-weight: bold")
+    end
   end
 end
