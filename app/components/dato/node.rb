@@ -58,7 +58,7 @@ module Dato
     def path_for_inline_item(inline_item)
       lambda = Dato::Config.links_mapping[inline_item.__typename]
       if lambda
-        instance_exec(inline_item, &lambda)
+        Rails.application.routes.url_helpers.instance_exec(inline_item, &lambda)
       end
     end
 
