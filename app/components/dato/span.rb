@@ -11,7 +11,7 @@ class Dato::Span < Dato::DastNode
     mapping = {
       emphasis: "font-style: italic",
       strong: "font-weight: bold",
-      highlight: "background-color: #FFFF00"
+      highlight: "background-color: var(--dato-highlight-color, yellow)",
     }.with_indifferent_access
 
     text_decoration_mappings = {

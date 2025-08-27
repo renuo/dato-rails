@@ -101,7 +101,7 @@ and [live updates](https://www.datocms.com/docs/real-time-updates-api) features 
 ```ruby
 Dato::Client.new(preview: true) # to fetch draft versions
 
-client = Dato::Client.new(live: true) # => to fetch a live straming URL 
+client = Dato::Client.new(live: true) # => to fetch a live straming URL
 client.live!(your_query)
 # => { url: 'https://your_event_source_url' }
 ```
@@ -308,6 +308,17 @@ Completed 200 OK in 365ms (Views: 109.5ms | ActiveRecord: 0.7ms (4 queries, 0 ca
 
 this is useful to identify if the bottleneck is in the fetching of the data from Dato CMS.
 
+## Styles
+### Highlighting
+
+By default, highlighted text `background-color` is set to `yellow`. This can be changed by setting the css `--dato-highlight-color` variable in your stylesheet:
+
+```css
+:root {
+  --dato-highlight-color: red;
+}
+```
+
 ## Development
 
 After checking out the repo, run `bundle install` to install dependencies.
@@ -333,7 +344,7 @@ and push the `.gem` file to [rubygems.org](https://rubygems.org).
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/renuo/dato-rails.
-This project is intended to be a safe, welcoming space for collaboration. 
+This project is intended to be a safe, welcoming space for collaboration.
 
 Try to be a decent human being while interacting with other people.
 
