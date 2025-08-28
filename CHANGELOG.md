@@ -1,3 +1,7 @@
+0.11.0
+
+* Add customizable highlight color via CSS variable 😊
+
 0.10.0
 
 * Added `execute_dato_query!` controller method, that does not silently fail but raises an exception.
