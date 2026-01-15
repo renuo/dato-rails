@@ -1,0 +1,6 @@
+<%= content_tag generated_tag, class: "dato-cms-#{@node.type}" do -%>
+<%= @node.value -%>
+<% @node.children&.each do |node| -%>
+<%= render_node(node) -%>
+<% end -%>
+<% end -%>

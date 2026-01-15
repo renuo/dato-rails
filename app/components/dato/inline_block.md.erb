@@ -1,0 +1,20 @@
+<% block = blocks&.find { |b| b.id == @node.item } %>
+<% if block.nil? %>
+
+> ! There is an inline block with id <code><%= @node.item %></code> that has not been retrieved by the GraphQL Query.<br>
+> ! It's possible that your query is returning a structured text without blocks.
+
+<% elsif block.__typename.nil? %>
+
+> ! In order to render an inline block, you need to return its <code>__typename</code>.<br>
+> ! In your GraphQL query, add <code>__typename</code> to the list of fields returned for the blocks.<br>
+> ! For example:<br><br>
+> ! <code>
+> !   blocks {
+> !     __typename
+> !   }
+> ! </code>
+
+<% else %>
+<%= render class_for_block(block).new(block, root) %>
+<% end  %>

@@ -1,0 +1,2 @@
+<%= (find_ancestor("list")&.node&.style == "bulleted") ? "*" : "1." -%> <%= @node.value -%>
+<% @node.children&.each do |node| -%><%= render_node(node) -%><% end -%>

@@ -1,3 +1,24 @@
+0.12.0
+
+* Adds markdown support.
+
+> [!IMPORTANT]
+> Breaking change: all your custom nodes, need to add a new argument "parent".
+
+```ruby
+def initialize(node, root)
+  super(node, "code", root)
+end
+```
+
+becomes:
+
+```ruby
+def initialize(node, root, parent = nil)
+  super(node, "code", root, parent)
+end
+```
+
 0.11.0
 
 * Add customizable highlight color via CSS variable 😊

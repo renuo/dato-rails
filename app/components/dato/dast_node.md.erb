@@ -1,0 +1,1 @@
+<%= @node.value -%><%= @node.children&.map { |node| render_node(node) }&.join(" ") -%>

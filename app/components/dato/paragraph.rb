@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Dato::Paragraph < Dato::DastNode
-  def initialize(node, root)
-    super(node, "paragraph", root)
+  def initialize(node, root, parent = nil)
+    super(node, "paragraph", root, parent)
   end
 
   def generated_tag
