@@ -1,8 +1,17 @@
 # frozen_string_literal: true
 
 class Dato::Span < Dato::DastNode
-  def initialize(node, root = nil)
-    super(node, "span", root)
+  def initialize(node, root = nil, parent = nil)
+    super(node, "span", root, parent)
+  end
+
+
+  def wrap_styles(&block)
+    wrapping_symbols = ""
+    wrapping_symbols += "**" if @node.marks&.include?("strong")
+    wrapping_symbols += "`" if @node.marks&.include?("code")
+    wrapping_symbols += "_" if @node.marks&.include?("emphasis")
+    "#{wrapping_symbols}#{capture(&block)}#{wrapping_symbols.reverse}"
   end
 
   def styles

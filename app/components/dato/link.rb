@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Dato::Link < Dato::DastNode
-  def initialize(node, root)
-    super(node, "link", root)
+  def initialize(node, root, parent = nil)
+    super(node, "link", root, parent)
   end
 
   def generated_tag

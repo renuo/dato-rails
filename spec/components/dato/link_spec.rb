@@ -55,4 +55,26 @@ RSpec.describe Dato::Link, type: :component do
       is_expected.not_to have_selector("a.dato-cms-link[target]")
     end
   end
+
+  context "when rendering in markdown format" do
+    let(:dast_node) {
+      {
+        type: "link",
+        url: "https://renuo.ch/",
+        children: [{type: "span", value: "The best company!"}]
+      }
+    }
+
+    it "renders as markdown link format" do
+      # Set the controller's request format to markdown
+      vc_test_controller.request.format = :md
+
+      rendered = render_inline(Dato::Link.new(Hashie::Mash.new(dast_node), root_node)).to_s
+
+      # In markdown format, links should be rendered as [text](url) not <a> tags
+      expect(rendered).to match(/\[[\s\S]*The best company![\s\S]*\]\(https:\/\/renuo\.ch\/\)/)
+      expect(rendered).not_to include("<a href=")
+      expect(rendered).not_to include("<a class=")
+    end
+  end
 end

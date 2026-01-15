@@ -1,0 +1,4 @@
+<% @node.children&.each do |node| -%>
+> <%= render_node(node) -%>
+<% end -%>
+> *<%= @node.attribution %>*

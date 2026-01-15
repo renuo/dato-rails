@@ -6,6 +6,7 @@ require "spec_helper"
 require File.expand_path("dummy/config/environment.rb", __dir__)
 
 require "rspec/rails"
+require "view_component/test_helpers"
 
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 

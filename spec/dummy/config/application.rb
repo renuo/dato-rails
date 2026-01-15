@@ -16,6 +16,11 @@ module Dummy
     # For compatibility with applications that use this config
     config.action_controller.include_all_helpers = false
 
+    # Register markdown as a valid MIME type for template resolution
+    config.after_initialize do
+      Mime::Type.register "text/markdown", :md
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

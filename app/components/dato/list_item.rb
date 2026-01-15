@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Dato::ListItem < Dato::DastNode
-  def initialize(node, root)
-    super(node, "listItem", root)
+  def initialize(node, root, parent = nil)
+    super(node, "listItem", root, parent)
   end
 
   def generated_tag

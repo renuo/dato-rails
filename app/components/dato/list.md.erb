@@ -1,0 +1,6 @@
+<%= @node.value -%>
+<% @node.children&.each do |node| -%>
+<% node["style"] ||= @node.style %>
+<%= render_node(node) -%>
+<% end -%>
+

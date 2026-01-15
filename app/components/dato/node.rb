@@ -2,16 +2,34 @@
 
 module Dato
   class Node < ViewComponent::Base
-    attr_reader :root
+    attr_reader :root, :node, :parent
 
-    def initialize(node, root = nil)
+    def initialize(node, root = nil, parent = nil)
       @node = node
       @root = root
+      @parent = parent
     end
 
     def render_node(node)
-      render class_for_node(node).new(node, root)
+      render class_for_node(node).new(node, root, self)
     end
+
+    # Find the first ancestor of a specific type
+    # @param type [String] the type to search for (e.g., "list", "structuredText")
+    # @return [Node, nil] the first ancestor matching the type or nil
+    def find_ancestor(type)
+      current = parent
+      while current
+        return current if current.node_type == type
+        current = current.parent
+      end
+      nil
+    end
+
+    # Get the type of the immediate parent node
+    # @return [String, nil] the parent's type or nil if no parent
+    def node_type = node&.type
+    def parent_type = parent&.node_type
 
     def blocks
       root.blocks

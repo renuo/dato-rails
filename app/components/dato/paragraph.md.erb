@@ -1,0 +1,8 @@
+<%= @node.value -%><%== @node.children&.map { |node| render_node(node) }&.join -%>
+<% if parent_type.nil? %>
+
+
+<% elsif "listItem" == parent_type %>
+<% else %>
+
+<% end %>
