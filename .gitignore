@@ -10,3 +10,4 @@
 /spec/dummy/tmp/
 .env
 .rspec_status
+*.gem

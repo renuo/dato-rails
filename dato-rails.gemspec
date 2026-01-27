@@ -22,9 +22,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock"
 
-  spec.add_dependency "view_component", ">= 2.0"
-  spec.add_dependency "rails", ">= 6"
-  spec.add_dependency "turbo-rails", ">= 1"
+  spec.add_dependency "view_component", ">= 4.0"
+  spec.add_dependency "rails", ">= 8"
+  spec.add_dependency "turbo-rails", ">= 2"
   spec.add_dependency "gqli", ">= 1"
   spec.add_dependency "zeitwerk", ">= 1"
 end

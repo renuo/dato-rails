@@ -66,10 +66,7 @@ RSpec.describe Dato::Link, type: :component do
     }
 
     it "renders as markdown link format" do
-      # Set the controller's request format to markdown
-      vc_test_controller.request.format = :md
-
-      rendered = render_inline(Dato::Link.new(Hashie::Mash.new(dast_node), root_node)).to_s
+      rendered = render_inline_md(Dato::Link.new(Hashie::Mash.new(dast_node), root_node))
 
       # In markdown format, links should be rendered as [text](url) not <a> tags
       expect(rendered).to match(/\[[\s\S]*The best company![\s\S]*\]\(https:\/\/renuo\.ch\/\)/)

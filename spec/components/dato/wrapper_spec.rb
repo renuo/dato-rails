@@ -1,4 +1,5 @@
 require "rails_helper"
+require "benchmark"
 
 RSpec.describe Dato::Wrapper, type: :component, vcr: true do
   include ActiveSupport::Testing::TimeHelpers

@@ -5,7 +5,6 @@ class Dato::Span < Dato::DastNode
     super(node, "span", root, parent)
   end
 
-
   def wrap_styles(&block)
     wrapping_symbols = ""
     wrapping_symbols += "**" if @node.marks&.include?("strong")
@@ -20,7 +19,7 @@ class Dato::Span < Dato::DastNode
     mapping = {
       emphasis: "font-style: italic",
       strong: "font-weight: bold",
-      highlight: "background-color: var(--dato-highlight-color, yellow)",
+      highlight: "background-color: var(--dato-highlight-color, yellow)"
     }.with_indifferent_access
 
     text_decoration_mappings = {

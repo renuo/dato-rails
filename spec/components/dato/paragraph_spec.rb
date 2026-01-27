@@ -26,7 +26,7 @@ RSpec.describe Dato::Paragraph, type: :component do
     }
 
     it "strips whitespaces" do
-      expect(rendered.to_html).to eq("<div class=\"dato-cms-paragraph\">\n<span class=\"dato-cms-span\">Bold Text </span><a href=\"https://www.example.com/\" class=\"dato-cms-link\"><span class=\"dato-cms-span\">Example Link</span></a><span class=\"dato-cms-span\"> Underlined Text</span>\n</div>")
+      expect(rendered.to_html).to eq("<div class=\"dato-cms-paragraph\"><span class=\"dato-cms-span\">Bold Text </span><a href=\"https://www.example.com/\" class=\"dato-cms-link\"><span class=\"dato-cms-span\">Example Link</span></a><span class=\"dato-cms-span\"> Underlined Text</span></div>")
     end
   end
 end

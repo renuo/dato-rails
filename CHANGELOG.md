@@ -1,3 +1,7 @@
+0.12.1
+
+* Fixes an issue on config block.
+
 0.12.0
 
 * Adds markdown support.

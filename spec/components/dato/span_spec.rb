@@ -50,19 +50,19 @@ RSpec.describe Dato::Span, type: :component do
   end
 
   context "when rendering in markdown format" do
-    before do
-      vc_test_controller.request.format = :md
+    def build_span(node)
+      Dato::Span.new(Hashie::Mash.new(node))
     end
 
     context "with plain text" do
       let(:dast_node) { {type: "span", value: "Hello"} }
 
       it "renders plain text without HTML tags" do
-        expect(rendered.to_s).to eq("Hello")
+        expect(render_inline_md(build_span(dast_node))).to eq("Hello")
       end
 
       it "does not add extra newlines" do
-        expect(rendered.to_s).not_to end_with("\n")
+        expect(render_inline_md(build_span(dast_node))).not_to end_with("\n")
       end
     end
 
@@ -70,7 +70,7 @@ RSpec.describe Dato::Span, type: :component do
       let(:dast_node) { {type: "span", marks: ["strong"], value: "\"Hello\""} }
 
       it "renders plain text without HTML tags" do
-        expect(rendered.to_s).to eq("**\"Hello\"**")
+        expect(render_inline_md(build_span(dast_node))).to eq("**\"Hello\"**")
       end
     end
 
@@ -78,7 +78,7 @@ RSpec.describe Dato::Span, type: :component do
       let(:dast_node) { {type: "span", value: "don't"} }
 
       it "renders plain text without HTML tags" do
-        expect(rendered.to_s).to eq("don't")
+        expect(render_inline_md(build_span(dast_node))).to eq("don't")
       end
     end
 
@@ -86,7 +86,7 @@ RSpec.describe Dato::Span, type: :component do
       let(:dast_node) { {type: "span", value: ""} }
 
       it "renders nothing" do
-        expect(rendered.to_s).to eq("")
+        expect(render_inline_md(build_span(dast_node))).to eq("")
       end
     end
 
@@ -94,7 +94,7 @@ RSpec.describe Dato::Span, type: :component do
       let(:dast_node) { {type: "span"} }
 
       it "renders nothing" do
-        expect(rendered.to_s).to eq("")
+        expect(render_inline_md(build_span(dast_node))).to eq("")
       end
     end
 
@@ -102,12 +102,12 @@ RSpec.describe Dato::Span, type: :component do
       let(:dast_node) { {type: "span", value: "Hello", marks: ["strong"]} }
 
       it "wraps text with ** for markdown bold" do
-        expect(rendered.to_s).to eq("**Hello**")
+        expect(render_inline_md(build_span(dast_node))).to eq("**Hello**")
       end
 
       it "does not include HTML tags" do
-        expect(rendered.to_s).not_to include("<span")
-        expect(rendered.to_s).not_to include("</span>")
+        expect(render_inline_md(build_span(dast_node))).not_to include("<span")
+        expect(render_inline_md(build_span(dast_node))).not_to include("</span>")
       end
     end
 
@@ -115,11 +115,11 @@ RSpec.describe Dato::Span, type: :component do
       let(:dast_node) { {type: "span", value: "Hello", marks: ["emphasis"]} }
 
       it "wraps text with _ for markdown italic" do
-        expect(rendered.to_s).to eq("_Hello_")
+        expect(render_inline_md(build_span(dast_node))).to eq("_Hello_")
       end
 
       it "does not include HTML tags" do
-        expect(rendered.to_s).not_to include("<span")
+        expect(render_inline_md(build_span(dast_node))).not_to include("<span")
       end
     end
 
@@ -127,12 +127,12 @@ RSpec.describe Dato::Span, type: :component do
       let(:dast_node) { {type: "span", value: "Hello", marks: ["code"]} }
 
       it "wraps text with backticks for markdown code" do
-        expect(rendered.to_s).to eq("`Hello`")
+        expect(render_inline_md(build_span(dast_node))).to eq("`Hello`")
       end
 
       it "does not include HTML tags" do
-        expect(rendered.to_s).not_to include("<code")
-        expect(rendered.to_s).not_to include("<span")
+        expect(render_inline_md(build_span(dast_node))).not_to include("<code")
+        expect(render_inline_md(build_span(dast_node))).not_to include("<span")
       end
     end
 
@@ -140,7 +140,7 @@ RSpec.describe Dato::Span, type: :component do
       let(:dast_node) { {type: "span", value: "Hello", marks: ["strong", "emphasis"]} }
 
       it "wraps text with combined markdown syntax" do
-        expect(rendered.to_s).to eq("**_Hello_**")
+        expect(render_inline_md(build_span(dast_node))).to eq("**_Hello_**")
       end
     end
 
@@ -148,15 +148,15 @@ RSpec.describe Dato::Span, type: :component do
       let(:dast_node) { {type: "span", value: "Hello", marks: ["strong", "code"]} }
 
       it "wraps text with combined markdown syntax" do
-        expect(rendered.to_s).to eq("**`Hello`**")
+        expect(render_inline_md(build_span(dast_node))).to eq("**`Hello`**")
       end
     end
 
-    context 'with all marks' do
+    context "with all marks" do
       let(:dast_node) { {type: "span", value: "Hello", marks: ["strong", "code", "emphasis"]} }
 
       it "wraps text with all markdown symbols" do
-        expect(rendered.to_s).to eq("**`_Hello_`**")
+        expect(render_inline_md(build_span(dast_node))).to eq("**`_Hello_`**")
       end
     end
 
@@ -164,12 +164,12 @@ RSpec.describe Dato::Span, type: :component do
       let(:dast_node) { {type: "span", value: "Hello", marks: ["underline"]} }
 
       it "renders plain text" do
-        expect(rendered.to_s).to eq("Hello")
+        expect(render_inline_md(build_span(dast_node))).to eq("Hello")
       end
 
       it "does not include HTML tags or styles" do
-        expect(rendered.to_s).not_to include("<span")
-        expect(rendered.to_s).not_to include("style=")
+        expect(render_inline_md(build_span(dast_node))).not_to include("<span")
+        expect(render_inline_md(build_span(dast_node))).not_to include("style=")
       end
     end
 
@@ -177,7 +177,7 @@ RSpec.describe Dato::Span, type: :component do
       let(:dast_node) { {type: "span", value: " "} }
 
       it "renders the whitespace" do
-        expect(rendered.to_s).to eq(" ")
+        expect(render_inline_md(build_span(dast_node))).to eq(" ")
       end
     end
   end

@@ -32,23 +32,20 @@ RSpec.describe Dato::List, type: :component do
         ]
       }
     end
-    before do
-      vc_test_controller.request.format = :md
-    end
 
     context "with bulleted list" do
       let(:style) { "bulleted" }
 
-
       it "renders list items with asterisks" do
-        output = rendered.to_s
+        output = render_inline_md(described_class.new(Hashie::Mash.new(dast_node), root_node))
         expect(output).to include("* First item")
         expect(output).to include("* Second item")
         expect(output).to include("* Third item")
       end
 
       it "adds two newlines at the end of the list" do
-        expect(rendered.to_s).to end_with("\n\n")
+        output = render_inline_md(described_class.new(Hashie::Mash.new(dast_node), root_node))
+        expect(output).to end_with("\n\n")
       end
     end
 
@@ -56,14 +53,15 @@ RSpec.describe Dato::List, type: :component do
       let(:style) { "numbered" }
 
       it "renders list items with numbers" do
-        output = rendered.to_s
+        output = render_inline_md(described_class.new(Hashie::Mash.new(dast_node), root_node))
         expect(output).to include("1. First item")
         expect(output).to include("1. Second item")
         expect(output).to include("1. Third item")
       end
 
       it "adds two newlines at the end of the list" do
-        expect(rendered.to_s).to end_with("\n\n")
+        output = render_inline_md(described_class.new(Hashie::Mash.new(dast_node), root_node))
+        expect(output).to end_with("\n\n")
       end
     end
   end

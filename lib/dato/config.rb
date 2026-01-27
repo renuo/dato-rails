@@ -11,12 +11,8 @@ module Dato
     class_attribute :base_editing_url, default: ENV.fetch("DATO_BASE_EDITING_URL", Rails.application.credentials.dig(:dato, :base_editing_url))
     class_attribute :mount_path, default: "/dato"
 
-    def self.configuration
-      @configuration ||= Config.new
-    end
-
     def self.configure
-      yield configuration
+      yield self
     end
   end
 end
