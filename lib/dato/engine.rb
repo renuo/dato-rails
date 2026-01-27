@@ -4,6 +4,10 @@ module Dato
   class Engine < ::Rails::Engine
     isolate_namespace Dato
 
+    initializer "dato_rails.mime_types", before: :load_config_initializers do
+      Mime::Type.register "text/markdown", :md unless Mime::Type.lookup_by_extension(:md)
+    end
+
     initializer "dato_rails.action_controller" do
       ActiveSupport.on_load(:action_controller) do
         include Dato::Railties::ControllerRuntime

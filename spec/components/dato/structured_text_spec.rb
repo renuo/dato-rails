@@ -17,10 +17,7 @@ RSpec.describe Dato::StructuredText, :vcr, type: :component do
     response = client.execute!(homepage_query)
     component = Dato::StructuredText.new(response.data.homepage.content)
 
-    # Set the controller's request format to markdown
-    vc_test_controller.request.format = :md
-
-    rendered = render_inline(component).to_s
+    rendered = render_inline_md(component)
 
     # In markdown format, paragraphs should NOT be wrapped in HTML tags like <div> or <p>
     # They should just be plain text with newlines
@@ -52,9 +49,8 @@ RSpec.describe Dato::StructuredText, :vcr, type: :component do
     end
 
     it "concatenates spans without automatic whitespace in markdown format" do
-      vc_test_controller.request.format = :md
       component = Dato::Paragraph.new(paragraph_with_spans, root)
-      rendered = render_inline(component).to_s
+      rendered = render_inline_md(component)
 
       expect(rendered).to include("First")
       expect(rendered).to include("Second")
@@ -73,9 +69,8 @@ RSpec.describe Dato::StructuredText, :vcr, type: :component do
         ]
       })
 
-      vc_test_controller.request.format = :md
       component = Dato::Paragraph.new(paragraph_with_whitespace_span, root)
-      rendered = render_inline(component).to_s
+      rendered = render_inline_md(component)
 
       # The whitespace span should be preserved
       expect(rendered).to eq("Hello World\n\n")
@@ -91,9 +86,8 @@ RSpec.describe Dato::StructuredText, :vcr, type: :component do
                                                           ]
                                                         })
 
-      vc_test_controller.request.format = :md
       component = Dato::Paragraph.new(paragraph_with_whitespace_span, root)
-      rendered = render_inline(component).to_s
+      rendered = render_inline_md(component)
 
       expect(rendered).to eq("\"Wrapped\"don'twhat?\n\n")
     end
