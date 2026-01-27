@@ -1,6 +1,6 @@
 class HomepageComponent < ViewComponent::Base
   def initialize(data)
-    super
+    super()
     @data = data
   end
 end

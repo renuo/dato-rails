@@ -78,13 +78,13 @@ RSpec.describe Dato::StructuredText, :vcr, type: :component do
 
     it "does not escape special characters" do
       paragraph_with_whitespace_span = Hashie::Mash.new({
-                                                          type: "paragraph",
-                                                          children: [
-                                                            {type: "span", value: "\"Wrapped\""},
-                                                            {type: "span", value: "don't"},
-                                                            {type: "span", value: "what?"}
-                                                          ]
-                                                        })
+        type: "paragraph",
+        children: [
+          {type: "span", value: "\"Wrapped\""},
+          {type: "span", value: "don't"},
+          {type: "span", value: "what?"}
+        ]
+      })
 
       component = Dato::Paragraph.new(paragraph_with_whitespace_span, root)
       rendered = render_inline_md(component)

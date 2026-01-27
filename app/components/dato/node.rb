@@ -29,6 +29,7 @@ module Dato
     # Get the type of the immediate parent node
     # @return [String, nil] the parent's type or nil if no parent
     def node_type = node&.type
+
     def parent_type = parent&.node_type
 
     def blocks

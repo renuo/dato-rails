@@ -7,7 +7,7 @@ gemspec
 gem "puma"
 gem "sqlite3"
 
-gem 'openssl', '~> 3.3'
+gem "openssl", "~> 3.3"
 
 gem "mimemagic"
 

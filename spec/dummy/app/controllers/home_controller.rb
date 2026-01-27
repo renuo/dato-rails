@@ -1,4 +1,4 @@
-class HomeController  < ApplicationController
+class HomeController < ApplicationController
   def show
     client = Dato::Client.new
     response = client.execute!(homepage_query)

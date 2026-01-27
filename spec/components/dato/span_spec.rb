@@ -152,7 +152,7 @@ RSpec.describe Dato::Span, type: :component do
       end
     end
 
-    context 'with all marks' do
+    context "with all marks" do
       let(:dast_node) { {type: "span", value: "Hello", marks: ["strong", "code", "emphasis"]} }
 
       it "wraps text with all markdown symbols" do
