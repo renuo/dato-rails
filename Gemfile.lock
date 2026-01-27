@@ -3,9 +3,9 @@ PATH
   specs:
     dato-rails (0.12.1)
       gqli (>= 1)
-      rails (>= 6)
-      turbo-rails (>= 1)
-      view_component (>= 2.0)
+      rails (>= 8)
+      turbo-rails (>= 2)
+      view_component (>= 4.0)
       zeitwerk (>= 1)
 
 GEM
