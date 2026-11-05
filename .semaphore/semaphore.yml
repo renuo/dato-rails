@@ -19,10 +19,10 @@ blocks:
         commands:
           - checkout --use-cache
           - sem-version ruby $(cat .ruby-version) -f
-          - cache restore
+          - cache restore gems-$SEMAPHORE_AGENT_MACHINE_OS_IMAGE-$(cat .ruby-version)-$(checksum Gemfile.lock)
           - bundle config set path 'vendor/bundle'
           - bundle install -j 4
-          - cache store
+          - cache store gems-$SEMAPHORE_AGENT_MACHINE_OS_IMAGE-$(cat .ruby-version)-$(checksum Gemfile.lock) vendor/bundle
       jobs:
         - name: lint
           commands:
