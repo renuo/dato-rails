@@ -1,5 +1,4 @@
-#!/bin/sh
-
-bundle exec standardrb --fix
+#!/usr/bin/env bash
+set -euo pipefail
 
 bundle exec rspec

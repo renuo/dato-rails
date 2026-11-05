@@ -2,8 +2,8 @@ version: "v1.0"
 name: dato-rails
 agent:
   machine:
-    type: e1-standard-2
-    os_image: ubuntu2004
+    type: f1-standard-2
+    os_image: ubuntu2404
 auto_cancel:
   running:
     when: "true"
@@ -18,14 +18,20 @@ blocks:
       prologue:
         commands:
           - checkout --use-cache
+          - sem-version ruby $(cat .ruby-version) -f
           - cache restore
           - bundle config set path 'vendor/bundle'
           - bundle install -j 4
           - cache store
       jobs:
+        - name: lint
+          commands:
+            - bin/fastcheck
         - name: check
           commands:
             - bin/check
 promotions:
-  - name: main
-    pipeline_file: main-deploy.yml
+  - name: release
+    pipeline_file: release.yml
+    auto_promote:
+      when: "result = 'passed' and tag =~ '^[0-9]+[.][0-9]+[.][0-9]+$'"
