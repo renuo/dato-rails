@@ -92,4 +92,19 @@ RSpec.describe Dato::StructuredText, :vcr, type: :component do
       expect(rendered).to eq("\"Wrapped\"don'twhat?\n\n")
     end
   end
+
+  it "renders a link to another record" do
+    content = Hashie::Mash.new(
+      value: {schema: "dast", document: {type: "root", children: [
+        {type: "paragraph", children: [
+          {type: "itemLink", item: "42", children: [{type: "span", value: "our team"}]}
+        ]}
+      ]}},
+      links: [{id: "42", __typename: "PageRecord"}]
+    )
+
+    rendered = render_inline(Dato::StructuredText.new(content))
+
+    expect(rendered).to have_selector("a.dato-cms-itemLink", text: "our team")
+  end
 end
