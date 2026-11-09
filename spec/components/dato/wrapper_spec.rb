@@ -1,5 +1,4 @@
 require "rails_helper"
-require "benchmark"
 
 RSpec.describe Dato::Wrapper, type: :component, vcr: true do
   include ActiveSupport::Testing::TimeHelpers
@@ -36,8 +35,8 @@ RSpec.describe Dato::Wrapper, type: :component, vcr: true do
 
   it "is much faster to render the second time" do
     expect(dato_client).to receive(:execute!).once.and_call_original
-    first_time = Benchmark.realtime { render }
-    second_time = Benchmark.realtime { render }
+    first_time = ActiveSupport::Benchmark.realtime { render }
+    second_time = ActiveSupport::Benchmark.realtime { render }
     expect(second_time * 4).to be < first_time
   end
 end

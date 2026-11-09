@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Dato::List, type: :component do
-  let(:root_node) { OpenStruct.new({overrides: {}}) }
+  let(:root_node) { Struct.new(:overrides).new({}) }
   subject(:rendered) { render_inline(described_class.new(Hashie::Mash.new(dast_node), root_node)) }
 
   context "with bulleted list" do
