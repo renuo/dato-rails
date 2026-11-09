@@ -26,5 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 8"
   spec.add_dependency "turbo-rails", ">= 2"
   spec.add_dependency "gqli", ">= 1"
+  spec.add_dependency "marcel", "~> 1.0"
   spec.add_dependency "zeitwerk", ">= 1"
 end
