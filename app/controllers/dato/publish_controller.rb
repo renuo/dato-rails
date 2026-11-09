@@ -15,9 +15,10 @@ module Dato
     end
 
     def check
-      if request.headers["Authorization"] != Dato::Config.publish_key
-        render json: {message: "unauthorized"}, status: :unauthorized
-      end
+      key = Dato::Config.publish_key
+      return if key.present? && ActiveSupport::SecurityUtils.secure_compare(request.headers["Authorization"].to_s, key)
+
+      render json: {message: "unauthorized"}, status: :unauthorized
     end
 
     private

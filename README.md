@@ -271,6 +271,7 @@ executing `Dato::Cache.clear!` or running `bin/rails dato:cache:clear`.
 You can take advantage of the publish mechanism of Dato CMS to expire the cache.
 
 * Generate a new secret key with `bin/rails secret` and set it as `DATO_PUBLISH_KEY` environment variable or in Rails Credentials as `dato.publish_key`.
+  The endpoint rejects every request until this key is set.
 * Create a build trigger with a custom webhook on your Dato CMS project setting.
 * Define the Trigger URL as `https://yourapp.com/dato/publish`
 * Set the `DATO_PUBLISH_KEY` as the Authorization header
