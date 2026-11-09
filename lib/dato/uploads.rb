@@ -77,7 +77,7 @@ module Dato
     end
 
     def upload_file_to_bucket(url:, path:)
-      s3_headers = HTTP.headers({"Content-Type" => MimeMagic.by_magic(File.open(path))&.type || "application/octet-stream"})
+      s3_headers = HTTP.headers({"Content-Type" => Marcel::MimeType.for(Pathname.new(path))})
       s3_headers.put(url, body: File.read(path))
     end
 

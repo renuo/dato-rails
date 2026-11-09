@@ -3,6 +3,7 @@ PATH
   specs:
     dato-rails (0.12.1)
       gqli (>= 1)
+      marcel (~> 1.0)
       rails (>= 8)
       turbo-rails (>= 2)
       view_component (>= 4.0)
@@ -166,9 +167,6 @@ GEM
       net-smtp
     marcel (1.1.0)
     matrix (0.4.2)
-    mimemagic (0.4.3)
-      nokogiri (~> 1)
-      rake
     mini_mime (1.1.5)
     minitest (6.0.1)
       prism (~> 1.5)
@@ -363,7 +361,6 @@ DEPENDENCIES
   capybara
   dato-rails!
   dotenv
-  mimemagic
   openssl (~> 3.3)
   puma
   rspec-rails (>= 3.0)
