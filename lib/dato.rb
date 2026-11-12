@@ -1,4 +1,5 @@
 require "gqli"
+require "marcel"
 require "view_component"
 require "zeitwerk"
 require "dato/engine"
