@@ -15,7 +15,7 @@ RSpec.describe Dato::Link, type: :component do
       children: [{type: "span", value: "The best company!"}]
     }
   }
-  let(:root_node) { OpenStruct.new({overrides: {}}) }
+  let(:root_node) { Struct.new(:overrides).new({}) }
 
   subject(:rendered) { render_inline(Dato::Link.new(Hashie::Mash.new(dast_node), root_node)) }
 
