@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Dato::ItemLink < Dato::DastNode
-  def initialize(node, root)
-    super(node, "itemLink", root)
+  def initialize(node, root, parent = nil)
+    super(node, "itemLink", root, parent)
   end
 
   def inline_item

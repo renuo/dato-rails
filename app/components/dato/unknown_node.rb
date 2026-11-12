@@ -2,8 +2,8 @@
 
 module Dato
   class UnknownNode < DastNode
-    def initialize(node, root)
-      super(node, node.type, root)
+    def initialize(node, root, parent = nil)
+      super(node, node.type, root, parent)
     end
   end
 end
