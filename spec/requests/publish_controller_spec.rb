@@ -16,6 +16,7 @@ RSpec.describe Dato::PublishController, type: :request, vcr: true do
   end
 
   it "expires all caches" do
+    Dato::Config.publish_key = "secret"
     expect(dato_client).to receive(:execute!).twice.and_call_original
     render
     post dato.publish_path, headers: {"Authorization" => Dato::Config.publish_key}
@@ -25,6 +26,12 @@ RSpec.describe Dato::PublishController, type: :request, vcr: true do
   it "cannot be accessed with a wrong publish key" do
     Dato::Config.publish_key = "a"
     post dato.publish_path, headers: {"Authorization" => "b"}
+    expect(response).to have_http_status(:unauthorized)
+  end
+
+  it "cannot be accessed when no publish key is configured" do
+    Dato::Config.publish_key = nil
+    post dato.publish_path
     expect(response).to have_http_status(:unauthorized)
   end
 end
